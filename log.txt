@@ -1,0 +1,110 @@
+127.0.0.1 2014-12-09,12:30:16 httptraffic url=http://localhost/demo/ sd=9
+127.0.0.1 2015-00-09,12:30:16 sd=9 sid=kgCz6FfCP3Er event=load size=943x887
+127.0.0.1 2015-00-09,12:30:16 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=693,6 dom=abaa
+127.0.0.1 2015-00-09,12:30:16 sd=9 sid=kgCz6FfCP3Er event=mouseover id=right dom=abbc
+127.0.0.1 2015-00-09,12:30:16 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=50,34 dom=abbc
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mouseover id=center dom=abbb
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=281,33 dom=abbb
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mouseover id=left dom=abba
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=201,135 dom=abba
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=104,195 dom=abba
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=107,195 id=left dom=abba
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=108,195 dom=abba
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=218,309 dom=abba
+127.0.0.1 2015-00-09,12:30:17 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=221,288 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=216,195 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=216,221 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=213,467 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=201,540 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=223,245 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=254,176 dom=abba
+127.0.0.1 2015-00-09,12:30:18 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=203,401 dom=abba
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=196,372 dom=abba
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=181,169 dom=abba
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=177,276 dom=abba
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=266,112 dom=abba
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mouseover id=center dom=abbb
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=166,195 dom=abbb
+127.0.0.1 2015-00-09,12:30:19 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=166,196 id=center dom=abbb
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=168,192 dom=abbb
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mouseover id=right dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=96,159 dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=202,182 id=right dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=202,183 dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=202,180 dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=143,140 dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=136,140 id=right dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=134,140 dom=abbc
+127.0.0.1 2015-00-09,12:30:20 sd=9 sid=kgCz6FfCP3Er event=mouseover id=center dom=abbb
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=179,163 dom=abbb
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=169,166 id=center dom=abbb
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=166,169 dom=abbb
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mouseover id=left dom=abba
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=230,190 dom=abba
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=161,193 id=left dom=abba
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=153,195 dom=abba
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=101,199 dom=abba
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=273,170 dom=abba
+127.0.0.1 2015-00-09,12:30:21 sd=9 sid=kgCz6FfCP3Er event=mouseover id=center dom=abbb
+127.0.0.1 2014-12-09,12:30:24 httptraffic url=http://localhost/demo/results.php sd=13
+127.0.0.1 2015-00-09,12:30:22 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=19,169 dom=abbb
+127.0.0.1 2015-00-09,12:30:22 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=181,160 dom=abbb
+127.0.0.1 2015-00-09,12:30:22 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=247,93 dom=abbb
+127.0.0.1 2015-00-09,12:30:23 sd=9 sid=kgCz6FfCP3Er event=mouseover dom=abab link=http://localhost/demo/results.php text=Results
+127.0.0.1 2015-00-09,12:30:23 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=472,59 dom=aba
+127.0.0.1 2015-00-09,12:30:23 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=459,54 dom=aba
+127.0.0.1 2015-00-09,12:30:23 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=459,59 dom=aba
+127.0.0.1 2015-00-09,12:30:23 sd=9 sid=kgCz6FfCP3Er event=mouseover dom=abab link=http://localhost/demo/results.php text=Results
+127.0.0.1 2015-00-09,12:30:23 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=32,8 dom=abab link=http://localhost/demo/results.php text=Results
+127.0.0.1 2015-00-09,12:30:26 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=79,1 dom=a
+127.0.0.1 2015-00-09,12:30:26 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=87,15 dom=abaa
+127.0.0.1 2015-00-09,12:30:26 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=89,25 dom=abaa
+127.0.0.1 2015-00-09,12:30:26 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=89,26 dom=abaa
+127.0.0.1 2015-00-09,12:30:26 sd=9 sid=kgCz6FfCP3Er event=mouseover id=left dom=abba
+127.0.0.1 2015-00-09,12:30:26 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=111,18 dom=abba
+127.0.0.1 2015-00-09,12:30:27 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=114,30 dom=abba
+127.0.0.1 2015-00-09,12:30:27 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=118,54 dom=abba
+127.0.0.1 2015-00-09,12:30:27 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=121,94 dom=abba
+127.0.0.1 2015-00-09,12:30:27 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=120,96 dom=abba
+127.0.0.1 2015-00-09,12:30:27 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=120,41 dom=abba
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=124,8 dom=abba
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=118,33 dom=abaa
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=117,26 dom=abaa
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=117,32 dom=abaa
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mouseover id=left dom=abba
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=117,27 dom=abba
+127.0.0.1 2015-00-09,12:30:28 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=117,50 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=121,77 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=124,116 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=122,136 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=122,139 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=125,103 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=131,59 dom=abba
+127.0.0.1 2015-00-09,12:30:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=137,16 dom=abba
+127.0.0.1 2015-00-09,12:30:30 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=141,72 dom=aba
+127.0.0.1 2014-12-09,12:30:31 httptraffic url=http://localhost/demo/results.php sd=15
+127.0.0.1 2015-00-09,12:30:30 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=144,45 dom=aba
+127.0.0.1 2015-00-09,12:30:30 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=145,44 dom=aba
+127.0.0.1 2015-00-09,12:30:30 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=145,42 dom=aba
+127.0.0.1 2015-00-09,12:30:30 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=148,42 dom=aba
+127.0.0.1 2015-00-09,12:30:30 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=444,49 dom=aba
+127.0.0.1 2015-00-09,12:30:31 sd=9 sid=kgCz6FfCP3Er event=mouseover dom=abab link=http://localhost/demo/results.php text=Results
+127.0.0.1 2015-00-09,12:30:31 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=38,0 dom=abab link=http://localhost/demo/results.php text=Results
+127.0.0.1 2015-00-09,12:30:31 sd=9 sid=kgCz6FfCP3Er event=mousedown offset=35,7 dom=abab link=http://localhost/demo/results.php text=Results
+127.0.0.1 2015-00-09,13:15:29 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=904,8 dom=abaa
+127.0.0.1 2015-00-09,13:15:30 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=3,216 dom=a
+127.0.0.1 2015-00-09,13:15:30 sd=9 sid=kgCz6FfCP3Er event=mouseover id=left dom=abba
+127.0.0.1 2015-00-09,13:15:39 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=118,28 dom=abba
+127.0.0.1 2015-00-09,13:15:39 sd=9 sid=kgCz6FfCP3Er event=mouseover id=center dom=abbb
+127.0.0.1 2015-00-09,13:15:39 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=40,37 dom=abbb
+127.0.0.1 2014-12-09,13:18:12 httptraffic url=http://localhost/ sd=17
+127.0.0.1 2014-12-09,13:18:23 httptraffic url=http://localhost/demo/ sd=22
+127.0.0.1 2014-12-09,13:18:38 httptraffic url=http://localhost/demo/results.php sd=24
+127.0.0.1 2014-12-09,13:18:49 httptraffic url=http://localhost/demo/results.php sd=26
+127.0.0.1 2014-12-09,13:19:00 httptraffic url=http://localhost/demo/results.php sd=28
+127.0.0.1 2015-00-09,13:32:46 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=20,1 dom=a
+127.0.0.1 2015-00-09,13:32:46 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=392,3 dom=abaa
+127.0.0.1 2015-00-09,13:32:46 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=427,19 dom=a
+127.0.0.1 2015-00-09,13:32:46 sd=9 sid=kgCz6FfCP3Er event=mousemove offset=430,10 dom=a
+127.0.0.1 2015-00-09,13:32:46 sd=9 sid=kgCz6FfCP3Er event=keypress key=ctrl+t
+127.0.0.1 2015-00-09,13:32:49 sd=9 sid=kgCz6FfCP3Er event=resize size=1886x923

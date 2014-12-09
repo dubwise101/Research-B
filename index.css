@@ -1,0 +1,40 @@
+<style>
+body {
+margin:0;
+background-color:#081e49;
+}
+
+#container {
+width:100%;
+margin:0;
+overflow:auto;
+}
+
+#center {
+width:33%;
+height:800px;
+background-color:red;
+background-repeat:no-repeat;
+background-position:center;
+float:left;
+}
+
+#left {
+width:33%;
+height:800px;
+float:left;
+background-color:blue;
+background-repeat:no-repeat;
+background-position:right;
+}
+
+#right {
+width:33%;
+height:800px;
+float:left;
+background-color:green;
+background-repeat:no-repeat;
+background-repeat:left;
+}
+
+</style>
