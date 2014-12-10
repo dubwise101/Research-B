@@ -1,0 +1,43 @@
+\section{Ajax}
+	
+\subsection{History}
+In the early 1990s, most websites were based on complete HTML pages. Each user action required that a complete page be loaded from the server. This process was inefficient, as reflected by the user experience: all page content disappeared, then reappeared. Each time the browser reloaded a page because of a partial change, all of the content had to be re-sent, even though only some of the information had changed. This placed additional load on the server and used excessive bandwidth.\\
+	
+To be able to fetch content asynchronously, the iframe tag was introduced by Internet Explorer in 1996. Two years later the Microsoft Outlook Web App team implemented the first component XMLHTTP by client script.
+In 1999, Microsoft used its iframe technology to dynamically update the news stories and stock quotes on the default page for Internet Explorer, and created the XMLHTTP ActiveX control in Internet Explorer 5, which was later adopted by Mozilla, Safari, Opera and other browsers as the XMLHttpRequest JavaScript object. Microsoft has adopted the native XMLHttpRequest model as of Internet Explorer 7, though the ActiveX version is still supported. The utility of background HTTP requests to the server and asynchronous Web technologies remained fairly obscure until it started appearing in full scale online applications such as Outlook Web App (2000) and Oddpost (2002).\\
+	
+Google was the first to make a wide deployment of standards-compliant, cross browser Ajax with Gmail in 2004 and Google Maps in 2005. The term "Ajax" was coined by Jesse James Garrett in an article titled "Ajax: A New Approach to Web Applications" from February 2005.\\
+	
+In an attempt to create an official web standard, the World Wide Web Consortium (W3C) published a draft specification for the XMLHttpRequest object on April 5, 2006. The latest revision to this specification was on November 19 of 2009, being a last call working draft. The W3C has since published another Working Draft specification for the XMLHttpRequest object, "XMLHttpRequest Level 2", on February 25 of 2008. The latest revision of the XMLHttpRequest Level 2 specification is that of 16 August 2011, which is still a working draft. As of 5 December 2011, XMLHttpRequest version 2 has been merged into the main XMLHttpRequest specification, and there is no longer a version 1 and a version 2.
+		
+\subsection{Technology}
+Ajax is a term first coined by Jesse James Garett in an article from 2005. It is an acronym for Asynchronous JavaScript + XML. Ajax is not a single technology, but several technologies combined:\\
+\begin{enumerate}
+	\item standards-based presentation using XHTML and CSS
+	\item dynamic display and interaction using the DOM (Document Object Model)
+	\item data interchange and manipulation using XML and XSLT
+	\item asynchronous data retrieval using XMLHttpRequest
+	\item and JavaScript to tie everything together.
+\end{enumerate} 
+~\\
+Ajax acts as an intermediary engine between the user and the server. Instead of loading a web page, the browser loads an Ajax engine (written in JavaScript). The engine is responsible for rendering the interface and communicating with the server (on the user's behalf). It also allows application interaction to happen asynchronously, independently of the communication with the server.
+	
+\subsection{Applications}
+		
+\textbf{Instant search}\\
+Instant search is a search enhancement that shows results as you type. This means that you get the right content faster than before, because you don't have to finish typing your full search term, or even press 'search'. Such an enhancement is made possible because of Ajax.\\
+	
+One of the most well-known application of instant search is Google Instant for Google's web search engine. Google Instant displays search results while you are typing. It sends an Ajax request to the server for every letter you type, but the server does not always return search results. When it does return results, it does this based on the first suggestion that Google Suggest shows. An example:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item Íf I type an 'f', an Ajax request (in JSON format) is sent, but no search results are returned.
+	\item If I now add an 'a', an Ajax request is sent, and search results (also in JSON) are returned based on the first suggestion (facebook)
+	\item If I now type a 'c', an Ajax request is sent, but no search results are returned. This since the first suggestion is still facebook.
+\end{itemize}
+	
+The funny thing is that only the partial term is sent to Google, so Google Suggest is used at both ends. This makes Google Instant predictive, since it searches for the suggested autocompletion instead of for the literal partial search query.\\
+	
+\textbf{Comet}\\
+Website developers want to keep their users as up-to-date as possible. So if someone comments on a picture you are viewing on Facebook, it would be nice to see a comment that someone typed in the meantime instantly. A technique used for this is periodic refresh. The problem with periodic refresh is that while it is good for some things that aren't too time critical, like e-mail fetching, it is not instantaneous. Therefore you wouldn't want to use it for something like chat where waiting even five seconds for a response is too long. You could decrease the polling interval and make a request once a second or even half second, but then you'd quickly overload your browser and waste resources.	
+	
+One solution for this is to use a web application model called 'Comet'. Comet is an umbrella term that encompasses multiple techniques  used to allow a web server to push data to a browser without the browser explicitly requesting it, by means of a long-held HTTP request. Term Comet first coined by Alex Russel in 2006 on his personal blog. The term is actually a play on Ajax (Ajax and Comet both being common household cleaners in the USA). Comet is also used for real-time collaborative document editing. Specific methods of implementing Comet fall into two major categories: streaming and long polling. Long polling is easier to implement on the browser side and works in every browser that supports XMLHttpRequest, as opposed to the streaming approach: none of the streaming transports work across all modern browsers without negative side-effects. The browser makes an Ajax-style request to the server, which is kept open until the server has new data to send to the browser, which is sent to the browser in a complete response. The browser initiates a new long polling request in order to obtain subsequent events.

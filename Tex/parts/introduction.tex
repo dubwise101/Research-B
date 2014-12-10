@@ -1,0 +1,23 @@
+\section{Introduction}
+	
+%The big picture
+By now most web users are familiar with the concept of cookies. Cookies are a web mechanism required for running a website. But they are also used for third-party tracking and profiling, which is considered as privacy invasive. That's why the EU cookie law was put into effect: websites have to ask their visitors for permission when cookies are used for such purposes. But cookies are not the only web technology that can be used to invade a user's privacy: enter Ajax.\\
+	
+%History & what is known
+Back in the days, browsing the web was a rather static experience: the user triggered HTTP requests by clicking on elements of a web page, the server then processed these requests and returned HTML pages to the client. This model makes technical sense, but it is not much of a user experience: the user has to wait while the server is doing the processing. To prevent this, a collection of web technologies, called Ajax, was used to hide the processing from the user. Ajax acts as an intermediary layer between the user and the server, which allows for asynchronous communication. This means that the user does not have to wait for the server anymore. This makes web pages more interactive, and thus a richer user experience is achieved. Some examples of Ajax applications are the dynamic loading of news articles while scrolling and displaying search results while you type.	On the other hand, there is a lot more communication between the client and the server. Since Ajax can be used to collect personal information, it essentially converts the browser into a perfect surveillance and profiling tool. All activities of the user (like keystrokes and mouse movements) can be logged.\\
+	
+%What is unknown
+What is unknown is how Ajax can be used to profile website visitors. Data collected using Ajax can be used to build profiles or draw (presumed) conclusions about users. This can obviously be privacy invasive. If website visitors can be profiled using Ajax, then a big part of the web users could be subject to privacy infringements.\\	
+	
+%Why it is important
+Web applications that use client-side scripting are nearly everywhere: 98 of the 100 most-viewed websites in the US use client-side JavaScript~\cite{intrusion}, and half of these use \verb|XML-HttpRequest|, the asynchronous callback mechanism that characterizes Ajax web applications. Research\footnote{https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/} by the UK government has shown that only 1.1\% of their website visitors are not getting JavaScript enhancements, so most web visitors are able to run Ajax. These numbers combined show that a big part of the internet could be affected by this research. The fact that there is no extensive research on the relation between Ajax and privacy yet makes it even more relevant to study.\\
+	Another reason for doing this research is that there are no legal regulations with regard to collecting data using Ajax. There is such a regulation for cookies, which can be used to track website visitors. Websites have to ask the user for explicit permission when such cookies are used. However, with Ajax you can collect privacy-sensitive information as well (possibly even more than with cookies), but it runs without deliberate decision from the user. This research can draw attention to this situation, so that appropriate action can be taken to address the issue.\\
+	
+	%Summary of approach
+The approach taken was the following:\\
+\begin{enumerate}
+	\item Make an overview of Ajax and the current use of it.
+	\item Choose a few popular sites and make a deeper analysis how they use Ajax.
+	\item Make a demonstration what malicious, privacy-invasive code can be developed.
+	\item Draw conclusions and make predictions about the Ajax technology in terms of technology and privacy.
+\end{enumerate}
