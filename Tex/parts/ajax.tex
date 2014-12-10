@@ -1,4 +1,5 @@
 \section{Ajax}
+\label{sec:ajax}
 	
 \subsection{History}
 In the early 1990s, most websites were based on complete HTML pages. Each user action required a complete page to be loaded from the server. This process was inefficient, as reflected by the user experience: all page content disappeared, then reappeared. Each time the browser reloaded a page because of a partial change, all of the content had to be re-sent, even though only some of the information had changed. This placed an additional load on the server and used excessive bandwidth.\\
@@ -11,7 +12,7 @@ Google was the first to widely deploy standards-compliant, cross browser Ajax wi
 In an attempt to create an official web standard, the World Wide Web Consortium (W3C) published a draft specification for the XMLHttpRequest object on 5 April, 2006. The latest revision to this specification was a last call working draft on 19 November 2009. The W3C has since published another Working Draft specification for the XMLHttpRequest object, "XMLHttpRequest Level 2", on February 25, 2008. The latest revision of the XMLHttpRequest Level 2 specification is that of 16 August 2011, which is still a working draft. As of 5 December 2011, XMLHttpRequest version 2 has been merged into the main XMLHttpRequest specification, and there is no longer a version 1 and a version 2.
 		
 \subsection{Technology}
-Ajax is a term first coined by Jesse James Garett in his 2005 article. It is an acronym for Asynchronous JavaScript + XML. Ajax is not a single technology, but several technologies combined:\\
+Ajax is a term first coined by Jesse James Garett in his 2005 article. It is an acronym for Asynchronous JavaScript + XML. Ajax is not a single technology, but several technologies combined:
 \begin{enumerate}
 	\item standards-based presentation using XHTML and CSS
 	\item dynamic display and interaction using the DOM (Document Object Model)
@@ -24,7 +25,7 @@ Ajax acts as an intermediary engine between the user and the server. Instead of 
 	
 \subsection{Applications}
 		
-\textbf{Instant search}\\
+\subsubsection{Instant search}
 Instant search is a search enhancement that shows results as you type. This means that you get the right content faster than before, because you don't have to finish typing your full search term, or even press 'search'. Such an enhancement is made possible because of Ajax.\\
 	
 One of the most well-known application of instant search is Google Instant for Google's web search engine. Google Instant displays search results while you are typing. It sends an Ajax request to the server for every letter you type, but the server does not always return search results. When it does return results, it does this based on the first suggestion that Google Suggest shows. An example:
@@ -37,7 +38,7 @@ One of the most well-known application of instant search is Google Instant for G
 	
 The funny thing is that only the partial term is sent to Google, so Google Suggest is used at both ends. This makes Google Instant predictive, since it searches for the suggested autocompletion instead of for the literal partial search query.\\
 	
-\textbf{Comet}\\
+\subsubsection{Comet}
 Website developers want to keep their users as up-to-date as possible. So if someone comments on a picture you are viewing on Facebook, it would be nice to see a comment that someone typed in the meantime instantly. A technique used for this is periodic refresh. The problem with periodic refresh is that while it is good for some things that aren't too time critical, like e-mail fetching, it is not instantaneous. Therefore you wouldn't want to use it for something like chat where waiting even five seconds for a response is too long. You could decrease the polling interval and make a request once a second or even half second, but then you'd quickly overload your browser and waste resources.	
 	
 One solution for this is to use a web application model called 'Comet'. Comet is an umbrella term that encompasses multiple techniques  used to allow a web server to push data to a browser without the browser explicitly requesting it, by means of a long-held HTTP request. Term Comet first coined by Alex Russel in 2006 on his personal blog. The term is actually a play on Ajax (Ajax and Comet both being common household cleaners in the USA). Comet is also used for real-time collaborative document editing. Specific methods of implementing Comet fall into two major categories: streaming and long polling. Long polling is easier to implement on the browser side and works in every browser that supports XMLHttpRequest, as opposed to the streaming approach: none of the streaming transports work across all modern browsers without negative side-effects. The browser makes an Ajax-style request to the server, which is kept open until the server has new data to send to the browser, which is sent to the browser in a complete response. The browser initiates a new long polling request in order to obtain subsequent events.
