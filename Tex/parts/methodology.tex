@@ -2,7 +2,7 @@
 \label{sec:methodology}
 	
 \subsection{Privacy}	
-Westin (1967) makes a classical distinction, differentiating between various spheres of privacy: solitude, intimacy, reserve and anonymity. The definition of privacy presented by Zureik et al. (2010) captures most relevant dimensions that are usually found:
+Westin \cite{westin1968privacy} makes a classical distinction, differentiating between various spheres of privacy: solitude, intimacy, reserve and anonymity. The definition of privacy presented by Zureik et al. \cite{privacydimensions} and Solove \cite{solove2002conceptualizing} captures most relevant dimensions that are usually found:
 \begin{enumerate}
 	\item the right to be let alone (Warren and Brandeis's famous formulation for the right to privacy),
 	\item limited access to the self (the ability to shield oneself from unwanted access by others), 
@@ -13,34 +13,35 @@ Westin (1967) makes a classical distinction, differentiating between various sph
 \end{enumerate} 
 These two definitions show that privacy is a relatively broad concept that captures various aspects of ordinary life.\\
 
-When we look at privacy from an IT-perspective, the focus is more on information privacy: the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. For example, web users may be concerned to discover that many of the web sites which they visit collect, store, and possibly share personally identifiable information about them. In this context privacy can be defined as the right to control the release of personal information about oneself, even when that data is collected and stored by a third party.\\
+Hoepman and van Lieshout \cite{privacy} also look at privacy from an IT-perspective. The focus is then more on information privacy: the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. For example, web users may be concerned to discover that many of the web sites which they visit collect, store, and possibly share personally identifiable information about them. In this context privacy can be defined as the right to control the release of personal information about oneself, even when that data is collected and stored by a third party.\\
 
 It is important to understand that privacy is not the same as data security, although the latter can help to protect personal information from unauthorised access and use. The right to privacy also states that personal data is only collected when necessary, that no more personal data is collected than needed, and that this data should only be used for the purpose for which it was originally collected. Also, people have the right to view and update personal information held by others about themselves.
 	
 \subsection{Legal framework}
-One typical approach to protecting privacy is using legal measures. Most prominent is the Universal Declaration of Human Rights. In article 12 it is stated that ‘No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against	such interference or attacks.’ This right to protection is repeated in the European Charter of	Fundamental Rights (2000) which states that everyone has the right to respect for his or her private and family life, home and communications (article 7) and everyone has the right to protection of personal data (article 8). The distinction between both articles is telling: while article 7 relates to privacy, article 8 relates to personal data. In our approach we would consider article 8 to relate to the informational dimension of privacy. As we will show, in current	practices both articles become more closely related.
-	
-It is especially the right to protection of personal data that is of relevance for this research. This right has led to some important European Directives. The two most relevant ones are	the directive ‘on the protection of individuals with regard to the processing of personal data	and on the free movement of such data’ (Directive 95/46/EC) and the directive ‘concerning the protection of personal data and the protection of privacy in the electronic communications sector’ (Directive 2002/58/EC). This latter Directive has meanwhile been inserted in a larger Directive (2009/136/EC) which integrates two directives (one on Universal Service as well) and a Regulation on consumer laws. Some aspects of the 2002/58/EC directive have been elaborated in more detail in the new Directive.\\
-	
-Directive 95/46/EC formulates a number of criteria for the lawful processing of personal data. These criteria refer in turn to a set of privacy principles which has been formulated by the OECD already in 1980 (OECD 2011). Each processing of personal data means a possible infringement on the privacy of the people whose data are collected and processed. This is only allowed when it can be justified on the following aspects:
-\begin{itemize}
-	\setlength\itemsep{0em}
+Hoepman and van Lieshout \cite{privacy} also discuss the legal framework. One approach to protecting privacy is by means of legal measures. Most prominent is article 12 of the Universal Declaration of Human Rights: 'No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.' The European Charter of Fundamental Rights (2000) repeats this right to protection by stating that everyone has the right to respect for his or her private and family life, home and communications (article 7) and everyone has the right to protection of personal data (article 8). There is a clear distinction between the two articles: article 7 relates to privacy, whereas article 8 relates to personal data. In this research I consider article 8 to relate to the information dimension of privacy. In Dutch legislation the right to privacy is generally recognised in the Constitution. The Dutch Constitution states that all Dutch citizens have a right to privacy (article 10). \\
+
+For this research the right to protection of personal data is most relevant. This right has led to some important European Directives. The two most relevant ones are Directive 95/46/EC \cite{epat1995directive} 'on the protection of individuals with regard to the processing of personal data and on the free movement of such data' and Directive 2002/58/EC \cite{parliamentdirective} 'concerning the protection of personal data and the protection of privacy in the electronic communications sector.' The latter, also known as the E-Privacy Directive, has meanwhile been inserted in a larger Directive (2009/136/EC), which is commonly referred to as the EU Cookie Law.\\
+
+Directive 95/46/EC formulates a number of criteria for the lawful processing of personal data. Each processing of personal data means a possible infringement on the privacy of the people whose data are collected and processed. This is only allowed when it can be justified on the following aspects:
+\begin{enumerate}
 	\item it serves a legitimate aim
 	\item it is lawful
 	\item collecting and processing the data is necessary (for instance to deliver a service or a product).
-\end{itemize}
-	
+\end{enumerate}
+~\\
 When collecting data can be justified, the collection process itself should meet the following criteria:
 \begin{enumerate}
 	\item it should serve a clear purpose
-	\item the purpose cannot be achieved in another, less invasive way (subsidiarity)
-	\item the data collection should be proportionate (not excessive and in line with the purpose)
-	\item safeguards should be in place (security measures, quality of data)
-	\item the rights of the ‘data subjects’ should be guaranteed (informed consent, right to access and correct the data)
+	\item the purpose cannot be achieved in another, less invasive way 
+	\item the data collection should be proportionate
+	\item safeguards should be in place 
+	\item the rights of the ‘data subjects’
 \end{enumerate}
+~\\
+A relevant phenomenon for this research is the so-called function creep: over time the functionality of a system may change and grow, encompassing functions which are different from the original purposes of the system. An illustration of function creep is provided by cookies. Cookies are a web mechanism required for the functioning of websites, but over time they have been used for other purposes as well: tracking, profiling and behavioural advertising, among others. Legal measures restricted this use by requiring website owners to ask their users for consent when cookies are used for such purposes.
 
 \subsection{Logging interactions: UsaProxy}
-UsaProxy is based upon an HTTP proxy approach. Logging is automatically done on an intermediate computer lying between the web browser and the web servers while multiple users surf the web. The assumption is that all page requests, the browsers make, go through the proxy.
+UsaProxy \cite{wnuk2005usability}\cite{atterer2006logging}\cite{atterer2007tracking} is based upon an HTTP proxy approach. Logging is automatically done on an intermediate computer lying between the web browser and the web servers while multiple users surf the web. The assumption is that all page requests, the browsers make, go through the proxy.
 	
 \begin{figure}[h] 
 	\centering
@@ -56,12 +57,12 @@ UsaProxy is based upon an HTTP proxy approach. Logging is automatically done on 
 \end{itemize}
 	
 Small sample of the log output produced by UsaProxy:
-\begin{verbatim}
+\begin{lstlisting}
 	141.84.8.77 2006-08-27,21:03:00 http://www.kiko.com/ load size=862x389
 	141.84.8.77 2006-08-27,21:03:03 http://www.kiko.com/ click coord=249,195 dom=abaaaa
 	141.84.8.77 2006-08-27,21:03:24 http://www.kiko.com/ mouseover coord=341,164 dom=abaaaaa img=kf_index.gif
 	...
-\end{verbatim}
+\end{lstlisting}
 	
 \subsection{Interpreting interactions}
-To be able to do something with the data logged by UsaProxy I have developed a web application that shows the user three colors and asks them which one they prefer. Based on the events logged by UsaProxy, the web application determines which color the user prefers. 
+To be able to do something with the data logged by UsaProxy I have developed a web application that shows the user a series of pictures. Users are asked to indicate which image they prefer by using their keyboard and mouse. These interactions are logged by UsaProxy. The web application then parses the log file and calculates the amount of actions and their duration registered on a particular image.

@@ -1,4 +1,5 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{article} % default fontSize=10pt
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{comment}
@@ -7,12 +8,18 @@
 \setlist[enumerate]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
 \usepackage{draftwatermark}
 \SetWatermarkScale{4}
+\usepackage{listings}
+\lstset{
+	breaklines=true,
+	basicstyle=\ttfamily
+}
 
-\title{Ajax Is Not a PET:\\ a Study on Privacy and Web Interaction}
+
+\title{Ajax Is Not a PET:\\a Study on Privacy and Web Interaction}
 \author{Maarten Derks~~~~~\href{mailto:maarten.derks@student.ru.nl}{\nolinkurl{maarten.derks@student.ru.nl}}}
 
-
 \begin{document}
+	
 	\maketitle
 	
 	\input{parts/abstract.tex}

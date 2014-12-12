@@ -4,27 +4,27 @@
 \subsection{Evaluation of the Logged Data}
 
 \subsubsection{Identifiable Information}
-By automatically adding the client-side monitoring UsaProxy script to every visited web page various information about user behaviour can be identified from the aggregated data from several test sessions.\\
+By automatically adding the client-side monitoring UsaProxy script to every visited web page, various information about user behavior can be identified from the aggregated data of several test sessions.\\
 
-Since the information about all visitors and an ordered listing of all their Web page visits with an accurate time stamp is aggregated in the log file, characteristics such as the paths users take (click through path), the page conversion, and key entry and exit pages can be recognized and classified. Various time-based metrics, such as average time spent on a page or the visit date and time can be retrieved. In that way differences in browsing behavior and real estate "hot spots" may be identified to gain insight in which content users prefer most. \\
+Since the information about all visitors and an ordered listing of all their Web page visits with an accurate time stamp is aggregated in the log file, characteristics such as the paths users take (click through path), the page conversion, and key entry and exit pages can be recognized and classified. Various time-based metrics, such as average time spent on a page or the visit date and time can be retrieved. In that way differences in browsing behavior and "hot spots" may be identified to gain insight in which content users prefer most. \\
 
-Analyzing the browser window size and scrolling behavior gives a first insight into the user's preferences. This feature can be easily extended by letting the UsaProxy script additionally identify the user's browser version, his screen resolution, installed plug-ins, the operating system, his available bandwidth, and so on.\\
+Analyzing the browser window size and scrolling behavior gives a first insight into the user's preferences. This feature can be easily extended by letting the UsaProxy script additionally identify the user's browser version, screen resolution, installed plug-ins, operating system, available bandwidth, and so on.\\
 
-But the power of UsaProxy lies in the additional event-oriented indicators aggregated in the log file. Besides page entering and window resizing events, clicking, stroking keys, moving the mouse and scrolling give a deeper insight into the user's intentions while browsing a website. The time a user spend with exploring a Web page before leaving it and his actions performed in the meantime can be accurately identified.\\
+The real power of UsaProxy lies in the additional event-oriented indicators aggregated in the log file. Besides page entering and window resizing events, clicking, stroking keys, moving the mouse and scrolling give deeper insights into the user's intentions while browsing a website. The time a user spends exploring a Web page before leaving it and his actions performed in the meantime can be accurately identified.\\
 
-The tracked mouse movements visualize the user's focus within a web page, whether they hesitate on other interesting links or text areas before clicking, and recognize content relating hot spots.
-This may help to discover either where users encounter obstacles such as confusing navigation, difficult to find links, and missing information or refer to more dominating (thus distracting) page elements. Furthermore, a non-hesitating mouse movement straight to a link can exhibit a determination in finding particular information on a website. \\
+The tracked mouse movements visualize the user's focus within a web page, whether they hesitate on other interesting links or text areas before clicking, and recognize content related hot spots.
+This may lead to the discovery of where users encounter obstacles such as confusing navigation, difficult to find links, and missing information or where they refer to more dominating (thus distracting) page elements. Furthermore, a non-hesitating mouse movement straight to a link can exhibit a determination in finding particular information on a website. \\
 
 Likewise the scrolling of a web page may signify whether the user is scanning the page or reading a piece of text. Do users scroll or do they evaluate distracting text or image information before they get to the right button? Do users need various attempts to type in data into the right form field?
-Did they go through the whole information on a web page before they left? Do they leave the page in-between before they accomplish a task? The conclusions to these questions may all be drawn from the log file, at least when concerning the aggregated results from large amounts of data.
+Did they go through the complete information on a web page before they left? Do they leave the page in-between before they accomplish a task? The answers to these questions may all be drawn from the log file, at least when concerning the aggregated results from large amounts of data.
 
 \subsubsection{Visualization Capabilities}
-A powerful way of interpreting the aggregated data in the log file would be to visualize it. UsaProxy already provides such a visualization by means of the remote monitoring mode. A remote monitoring session is started when a user (i.e. the potential monitored person) clicks on a "Live-Support" button. This button must be available within a web page in the form:
-\begin{verbatim}
+A powerful way of interpreting the aggregated data in the log file would be to visualize it. UsaProxy already provides visualization in the form of the remote monitoring mode. A remote monitoring session is started when a user (i.e. the potential monitored person) clicks on a "Live-Support" button. This button must be available within a web page in the form:
+\begin{lstlisting}
 <INPUT type="button" value="Live Support" name="proposebut" id="proposebut">
-\end{verbatim}
+\end{lstlisting}
 
-The support assistant (i.e. the potential monitoring partner) sees the other user's session ID on the remote monitoring overview page (which is delivered by UsaProxy on-the-fly when e.g. http://www.google.nl/remotemonitoring is typed in) in a list of "proposals". Before this can happen, the assistant must click on "register" in order to receive such proposals. Once he clicks on the "accept" button, the shared session is started: he is redirected to the other user's web page, a chat layer and the second mouse pointer are displayed. 
+The support assistant (i.e. the potential monitoring partner) sees the other user's session ID on the remote monitoring overview page (which is made available by UsaProxy on-the-fly when e.g. http://www.google.nl/remotemonitoring is typed in) in a list of "proposals". Before this can happen, the assistant must click on "register" in order to receive these proposals. Once the "accept" button has been clicked, the shared session is started: the user is redirected to the other user's web page and a chat layer and the second mouse pointer are displayed. 
 
 \subsection{Demo results}
 The results of the experiment are not available yet. They will be added in the first week of January.
