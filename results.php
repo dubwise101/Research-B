@@ -7,17 +7,12 @@
 		<?php
 			$ip = $_SERVER['REMOTE_ADDR'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    				$ip = $_SERVER['HTTP_CLIENT_IP'];		
+    			$ip = $_SERVER['HTTP_CLIENT_IP'];		
 			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 			} else {
-			    	$ip = $_SERVER['REMOTE_ADDR'];
+			    $ip = $_SERVER['REMOTE_ADDR'];
 			}
-			echo $ip;
-
-
-			//$ip = $_SERVER['REMOTE_ADDR'];
-			//$ip = '127.0.0.1';
 
 			$blueCounter = 0;
 			$blue = array();
@@ -102,27 +97,43 @@
 			else {
 				echo '<h1>You prefer the color blue!</h1>';
 			}
+			echo 'based on how many times you entered the color with your mouse<br/><br/>';
 
-
-			echo 'blue visited ' . count($blue) . ' times <br/>';
+			echo 'blue visited ' . count($blue) . ' times for ' . totalTimeSpent($blue) . ' seconds<br/>';
 			for ($i = 0; $i < count($blue); $i++) {
     			echo $i . ': ' . count($blue[$i]) . ', ';
 			} 
 			echo '<br/>';
 			echo '<br/>';
-			echo 'red visited ' . count($red) . ' times <br/>';
+			echo 'red visited ' . count($red) . ' times for ' . totalTimeSpent($red) . ' seconds<br/>';
 			for ($i = 0; $i < count($red); $i++) {
     			echo $i . ': ' . count($red[$i]) . ', ';
 			} 
 			echo '<br/>';
 			echo '<br/>';
-			echo 'green visited ' . count($green) . ' times <br/>';
+			echo 'green visited ' . count($green) . ' times for ' . totalTimeSpent($green) . ' seconds<br/>';
 			for ($i = 0; $i < count($green); $i++) {
     			echo $i . ': ' . count($green[$i]) . ', ';
 			} 
 
-			function startsWith($haystack, $needle)
-			{
+			function totalTimeSpent($logs) {
+				$totalTimeSpent = 0;
+				for($i = 0; $i < count($logs); $i++) {
+					$lastLogEntry = count($logs[$i]) - 1;
+					$lastLog = $logs[$i][$lastLogEntry];
+					$splitLastLog = explode(",", $lastLog);
+					$lastLogTime = explode(" ", $splitLastLog[1]);
+
+					$firstLog = $logs[$i][0];
+					$splitFirstLog = explode(",", $firstLog);
+					$firstLogTime = explode(" ", $splitFirstLog[1]);
+
+					$totalTimeSpent += strtotime($lastLogTime[0]) - strtotime($firstLogTime[0]);
+				}
+				return $totalTimeSpent;
+			}
+
+			function startsWith($haystack, $needle) {
 			    $length = strlen($needle);
 			    return (substr($haystack, 0, $length) === $needle);
 			}
