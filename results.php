@@ -6,6 +6,17 @@
 	<body>
 		<?php
 			$ip = $_SERVER['REMOTE_ADDR'];
+			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    				$ip = $_SERVER['HTTP_CLIENT_IP'];		
+			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			} else {
+			    	$ip = $_SERVER['REMOTE_ADDR'];
+			}
+			echo $ip;
+
+
+			//$ip = $_SERVER['REMOTE_ADDR'];
 			//$ip = '127.0.0.1';
 
 			$blueCounter = 0;
