@@ -5,13 +5,19 @@
    	</head>
 	<body>
 		<?php
+			// set default time zone if not set at php.ini
+			if (!date_default_timezone_get('date.timezone'))
+			{
+			    date_default_timezone_set('Europe/Amsterdam'); // put here default timezone
+			}
+
 			$ip = $_SERVER['REMOTE_ADDR'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    			$ip = $_SERVER['HTTP_CLIENT_IP'];		
+    				$ip = $_SERVER['HTTP_CLIENT_IP'];		
 			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 			} else {
-			    $ip = $_SERVER['REMOTE_ADDR'];
+			    	$ip = $_SERVER['REMOTE_ADDR'];
 			}
 
 			$blueCounter = 0;

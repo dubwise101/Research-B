@@ -10,31 +10,44 @@ margin:0;
 overflow:auto;
 }
 
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+    
 #center {
-width:33%;
-height:800px;
-background-color:red;
-background-repeat:no-repeat;
-background-position:center;
-float:left;
+	width:33%;
+	height:800px;
+	background-color:red;
+	background-repeat:no-repeat;
+	background-position:center;
+	float:left;
 }
 
 #left {
-width:33%;
-height:800px;
-float:left;
-background-color:blue;
-background-repeat:no-repeat;
-background-position:right;
+	width:33%;
+	height:800px;
+	float:left;
+	background-color:blue;
+	background-repeat:no-repeat;
+	background-position:right;
 }
 
 #right {
-width:33%;
-height:800px;
-float:left;
-background-color:green;
-background-repeat:no-repeat;
-background-repeat:left;
+	width:33%;
+	height:800px;
+	float:left;
+	background-color:green;
+	background-repeat:no-repeat;
+	background-repeat:left;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
 }
 
 </style>

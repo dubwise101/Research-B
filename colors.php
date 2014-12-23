@@ -6,7 +6,7 @@
 <body>
 	<center>
 		<h1>Which color do you prefer?</h1>
-		<a href="results.php">Results</a>
+		<a href="colorsResults.php">Results</a>
 	</center>
   <div align="center" id="container">
 <div id="left"></div>
