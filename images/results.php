@@ -1,26 +1,71 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
    	<html>
    	<head>
-      <link rel="stylesheet" type="text/css" href="index.css">
+      <link rel="stylesheet" type="text/css" href="../index.css">
    	</head>
 	<body>
+		<h1>Thank you!</h1>
+		<h2>You took part in an experiment</h2>
+		I tried to analyse which image you like most, based on you interactions.
+		I think this is your preferred order:<br/><br/>
 		<?php
-			// set default time zone if not set at php.ini
-			if (!date_default_timezone_get('date.timezone'))
-			{
-			    date_default_timezone_set('Europe/Amsterdam'); // put here default timezone
-			}
-
 			$ip = $_SERVER['REMOTE_ADDR'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    				$ip = $_SERVER['HTTP_CLIENT_IP'];		
+    			$ip = $_SERVER['HTTP_CLIENT_IP'];		
 			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 			} else {
-			    	$ip = $_SERVER['REMOTE_ADDR'];
+			    $ip = $_SERVER['REMOTE_ADDR'];
 			}
 
-			$blueCounter = 0;
+			$amountOfImages = 10;
+
+			$counters = array();
+			for ($i = 0; $i < $amountOfImages; $i++) {
+    			$counters[$i] = 0;
+    		}
+
+			$myFile = "../log.txt";
+			$handle = fopen($myFile, "r");
+			if ($handle) {
+				while (($line = fgets($handle)) !== false) {
+					if(startsWith($line,$ip)) {
+						for($i = 0; $i < $amountOfImages; $i++) {
+							if (strpos($line, $i . '.jpg') !== false) {
+    							$counters[$i] += 1;
+    						}
+						}
+					}
+				}
+			} else {
+			    // error opening the file.
+			    echo "There was an error opening the log file!";
+			} 
+			fclose($handle);
+
+			//for ($i = 0; $i < $amountOfImages; $i++) {
+			//	echo $i . ': ' . $counters[$i] . '<br/>';
+    		//}
+			
+			while(true) {
+				if(max($counters)!==-1) {
+					$maxs = array_keys($counters, max($counters));
+					echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt="">';
+					$counters[$maxs[0]]=-1;
+				}
+				else {
+					break;
+				}
+			}
+			
+			//$maxs = array_keys($counters, max($counters));
+			//echo $maxs[0] . '<br/>';
+
+
+			
+			
+
+			/*$blueCounter = 0;
 			$blue = array();
 
 			$redCounter = 0;
@@ -33,11 +78,8 @@
 			$handle = fopen($myFile, "r");
 			if ($handle) {
     			while (($line = fgets($handle)) !== false) {
-    				// find user logs
 	    			if(startsWith($line,$ip)) {
-	    				// find blue log
 	    				if (strpos($line,'dom=abba') !== false) { 
-	    					//echo 'Ik ben blauw tegengekomen...'; 
 	    					$blue[$blueCounter] = array();
 	    					array_push($blue[$blueCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
@@ -45,31 +87,25 @@
 	    								array_push($blue[$blueCounter],$line);
 	    						} 
 	    						else {
-	    							//echo '...nu niet meer</br>';
 	    							$blueCounter++;
 	    							break;
 	    						}
 	    					}				
 						}
-						// find red log
 	    				if (strpos($line,'dom=abbb') !== false) { 
-	    					//echo 'Ik ben rood tegengekomen...';
 	    					$red[$redCounter] = array(); 
 	    					array_push($red[$redCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
 	    						if (strpos($line,'dom=abbb') !== false) {   
 	    								array_push($red[$redCounter],$line);
 	    						} 
-	    						else {
-	    							//echo 'nu niet meer</br>';
-	    							$redCounter++;
+	    						else 
+{	    							$redCounter++;
 	    							break;
 	    						}
 	    					}				
 						}
-						// find green log
 	    				if (strpos($line,'dom=abbc') !== false) { 
-	    					//echo 'Ik ben groen tegengekomen...'; 
 	    					$green[$greenCounter] = array();
 	    					array_push($green[$greenCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
@@ -77,7 +113,6 @@
 	    								array_push($green[$greenCounter],$line);
 	    						} 
 	    						else {
-	    							//echo 'nu niet meer</br>';
 	    							$greenCounter++;
 	    							break;
 	    						}
@@ -105,22 +140,14 @@
 			}
 			echo 'based on how many times you entered the color with your mouse<br/><br/>';
 
-			echo 'blue visited ' . count($blue) . ' times for ' . totalTimeSpent($blue) . ' seconds<br/>';
-			for ($i = 0; $i < count($blue); $i++) {
-    			echo $i . ': ' . count($blue[$i]) . ', ';
-			} 
-			echo '<br/>';
-			echo '<br/>';
-			echo 'red visited ' . count($red) . ' times for ' . totalTimeSpent($red) . ' seconds<br/>';
-			for ($i = 0; $i < count($red); $i++) {
-    			echo $i . ': ' . count($red[$i]) . ', ';
-			} 
-			echo '<br/>';
-			echo '<br/>';
-			echo 'green visited ' . count($green) . ' times for ' . totalTimeSpent($green) . ' seconds<br/>';
-			for ($i = 0; $i < count($green); $i++) {
-    			echo $i . ': ' . count($green[$i]) . ', ';
-			} 
+			printStatistics('blue',$blue);
+			printStatistics('red',$red);
+			printStatistics('green',$green);*/
+
+			function startsWith($haystack, $needle) {
+			    $length = strlen($needle);
+			    return (substr($haystack, 0, $length) === $needle);
+			}
 
 			function totalTimeSpent($logs) {
 				$totalTimeSpent = 0;
@@ -139,9 +166,12 @@
 				return $totalTimeSpent;
 			}
 
-			function startsWith($haystack, $needle) {
-			    $length = strlen($needle);
-			    return (substr($haystack, 0, $length) === $needle);
+			function printStatistics($color,$logs) {
+				echo $color . ' visited ' . count($logs) . ' times for ' . totalTimeSpent($logs) . ' seconds<br/>';
+				for ($i = 0; $i < count($logs); $i++) {
+    				echo $i . ': ' . count($logs[$i]) . ', ';
+    			}
+    			echo '<br/><br/>';
 			}
 		?>
 	</body>

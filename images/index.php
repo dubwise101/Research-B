@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
    	<html>
    	<head>
-      <link rel="stylesheet" type="text/css" href="index.css">
+      <link rel="stylesheet" type="text/css" href="../index.css">
    	</head>
 <body>
   <h1>Have a look at these images</h1>
@@ -16,6 +16,6 @@
   <img src="images/8.png" class="displayed" alt="">
   <img src="images/9.jpg" class="displayed" alt="">
   <img src="images/10.jpg" class="displayed" alt="">
-  <a href="imagesResults.php">Results</a>
+  <a href="results.php">Results</a>
   </body>
   </html>
