@@ -1,9 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-   	<html>
-   	<head>
-      <link rel="stylesheet" type="text/css" href="../index.css">
-   	</head>
-	<body>
+	<html>
+   		<head>
+      		<link rel="stylesheet" type="text/css" href="../index.css">
+   		</head>
+		<body>
 		<?php
 			// set default time zone if not set at php.ini
 			if (!date_default_timezone_get('date.timezone'))
@@ -13,11 +13,11 @@
 
 			$ip = $_SERVER['REMOTE_ADDR'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    				$ip = $_SERVER['HTTP_CLIENT_IP'];		
+    			$ip = $_SERVER['HTTP_CLIENT_IP'];		
 			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 			} else {
-			    	$ip = $_SERVER['REMOTE_ADDR'];
+			    $ip = $_SERVER['REMOTE_ADDR'];
 			}
 
 			$blueCounter = 0;
@@ -37,15 +37,13 @@
 	    			if(startsWith($line,$ip)) {
 	    				// find blue log
 	    				if (strpos($line,'dom=abba') !== false) { 
-	    					//echo 'Ik ben blauw tegengekomen...'; 
 	    					$blue[$blueCounter] = array();
 	    					array_push($blue[$blueCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
 	    						if (strpos($line,'dom=abba') !== false) {   
-	    								array_push($blue[$blueCounter],$line);
+	    							array_push($blue[$blueCounter],$line);
 	    						} 
 	    						else {
-	    							//echo '...nu niet meer</br>';
 	    							$blueCounter++;
 	    							break;
 	    						}
@@ -53,7 +51,6 @@
 						}
 						// find red log
 	    				if (strpos($line,'dom=abbb') !== false) { 
-	    					//echo 'Ik ben rood tegengekomen...';
 	    					$red[$redCounter] = array(); 
 	    					array_push($red[$redCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
@@ -61,7 +58,6 @@
 	    								array_push($red[$redCounter],$line);
 	    						} 
 	    						else {
-	    							//echo 'nu niet meer</br>';
 	    							$redCounter++;
 	    							break;
 	    						}
@@ -69,7 +65,6 @@
 						}
 						// find green log
 	    				if (strpos($line,'dom=abbc') !== false) { 
-	    					//echo 'Ik ben groen tegengekomen...'; 
 	    					$green[$greenCounter] = array();
 	    					array_push($green[$greenCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
@@ -77,7 +72,6 @@
 	    								array_push($green[$greenCounter],$line);
 	    						} 
 	    						else {
-	    							//echo 'nu niet meer</br>';
 	    							$greenCounter++;
 	    							break;
 	    						}
@@ -94,33 +88,44 @@
 
 			if(count($blue) < count($red)) {
 				if(count($green) < count($red)) {
-					echo '<h1>You prefer the color red!</h1>';
+					echo '<h1>You seem to prefer the color red!</h1>';
 				}
 				else if (count($blue) < count($green)) {
-					echo '<h1>You prefer the color green!</h1>';
+					echo '<h1>You seem to prefer the color green!</h1>';
 				}				
 			}
 			else {
-				echo '<h1>You prefer the color blue!</h1>';
+				echo '<h1>You seem to prefer the color blue!</h1>';
 			}
-			echo 'based on how many times you entered the color with your mouse<br/><br/>';
+			echo '<center>based on how many times you visited the color with your mouse</center><br/><br/>';
 
-			echo 'blue visited ' . count($blue) . ' times for ' . totalTimeSpent($blue) . ' seconds<br/>';
-			for ($i = 0; $i < count($blue); $i++) {
-    			echo $i . ': ' . count($blue[$i]) . ', ';
-			} 
-			echo '<br/>';
-			echo '<br/>';
-			echo 'red visited ' . count($red) . ' times for ' . totalTimeSpent($red) . ' seconds<br/>';
-			for ($i = 0; $i < count($red); $i++) {
-    			echo $i . ': ' . count($red[$i]) . ', ';
-			} 
-			echo '<br/>';
-			echo '<br/>';
-			echo 'green visited ' . count($green) . ' times for ' . totalTimeSpent($green) . ' seconds<br/>';
-			for ($i = 0; $i < count($green); $i++) {
-    			echo $i . ': ' . count($green[$i]) . ', ';
-			} 
+
+			if(isset($_GET['correct'])) {
+				$myFile = "results.txt";
+				$fh = fopen($myFile, 'a') or die("can't open file");
+				if($_GET['correct'] === 'yes') {
+					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " True\n");
+				} else {
+					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " True\n");
+				}
+				fclose($fh);	
+				echo '<center><p>Thank you</p><center>';
+			} else {
+   				echo '<center><form action="" id="hide">
+				Is this correct?<br/>
+				<input type="radio" name="correct" value="yes">Yes<br/>
+				<input type="radio" name="correct" value="yes">No<br/>
+				<input type="submit" value="Submit">
+				</form></center>';
+			}			
+
+			function numberOfEvents($logs) {
+				$numberOfEvents = 0;
+				for($i = 0; $i < count($logs); $i++) {
+					$numberOfEvents += count($logs[$i]);
+				}
+				return $numberOfEvents;
+			}
 
 			function totalTimeSpent($logs) {
 				$totalTimeSpent = 0;

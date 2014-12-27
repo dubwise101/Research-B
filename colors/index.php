@@ -5,8 +5,9 @@
    	</head>
 <body>
 	<center>
-		<h1>Which color do you prefer?</h1>
-		<a href="results.php">Results</a>
+		<h1>Have a look at these colors</h1>
+    <h2>Use your mouse to indicate which one you like most</h2>
+		Click <a href="results.php">here</a> when you are done
 	</center>
   <div align="center" id="container">
 <div id="left"></div>

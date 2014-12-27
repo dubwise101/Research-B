@@ -4,18 +4,20 @@
       <link rel="stylesheet" type="text/css" href="../index.css">
    	</head>
 <body>
-  <h1>Have a look at these images</h1>
-  <h2>Which one do you like best?</h2>
-  <img src="images/1.jpg" class="displayed" alt="">
-  <img src="images/2.jpg" class="displayed" alt="">
-  <img src="images/3.jpg" class="displayed" alt="">
-  <img src="images/4.jpg" class="displayed" alt="">
-  <img src="images/5.jpg" class="displayed" alt="">
-  <img src="images/6.png" class="displayed" alt="">
-  <img src="images/7.jpg" class="displayed" alt="">
-  <img src="images/8.png" class="displayed" alt="">
+  <center>
+    <h1>Have a look at these images</h1>
+    <h3>Use your mouse to indicate which one you like most</h3>
+    Click <a href="results.php">here</a> when you are done<br/><br/>
+  </center>
+  <img src="images/0.jpg" class="displayed" alt=""><br/>
+  <img src="images/1.jpg" class="displayed" alt=""><br/>
+  <img src="images/2.jpg" class="displayed" alt=""><br/>
+  <img src="images/3.jpg" class="displayed" alt=""><br/>
+  <img src="images/4.jpg" class="displayed" alt="" width="80%" height="80%"><br/>
+  <img src="images/5.jpg" class="displayed" alt="" width="80%" height="80%"><br/>
+  <img src="images/6.jpg" class="displayed" alt=""><br/>
+  <img src="images/7.jpg" class="displayed" alt="" width="80%" height="80%"><br/>
+  <img src="images/8.jpg" class="displayed" alt=""><br/>
   <img src="images/9.jpg" class="displayed" alt="">
-  <img src="images/10.jpg" class="displayed" alt="">
-  <a href="results.php">Results</a>
   </body>
   </html>
