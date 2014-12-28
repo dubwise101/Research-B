@@ -18,7 +18,7 @@ IMG.displayed {
 #center {
 	width:33%;
 	height:600px;
-	background-color:red;
+	background-color:green;
 	background-repeat:no-repeat;
 	background-position:center;
 	float:left;
@@ -28,7 +28,7 @@ IMG.displayed {
 	width:33%;
 	height:600px;
 	float:left;
-	background-color:blue;
+	background-color:red;
 	background-repeat:no-repeat;
 	background-position:right;
 }
@@ -37,7 +37,7 @@ IMG.displayed {
 	width:33%;
 	height:600px;
 	float:left;
-	background-color:green;
+	background-color:blue;
 	background-repeat:no-repeat;
 	background-repeat:left;
 }

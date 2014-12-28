@@ -4,13 +4,12 @@
       		<link rel="stylesheet" type="text/css" href="../index.css">
    		</head>
 		<body>
+		<h1>Thank you!</h1>
+		<h2>You just took part in an experiment</h2>
+		<center>
+		I tried to analyse which color you like most, based on you interactions.
+	</center><br/><br/>	
 		<?php
-			// set default time zone if not set at php.ini
-			if (!date_default_timezone_get('date.timezone'))
-			{
-			    date_default_timezone_set('Europe/Amsterdam'); // put here default timezone
-			}
-
 			$ip = $_SERVER['REMOTE_ADDR'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     			$ip = $_SERVER['HTTP_CLIENT_IP'];		
@@ -19,6 +18,11 @@
 			} else {
 			    $ip = $_SERVER['REMOTE_ADDR'];
 			}
+
+			$startTime;
+			if(isset($_GET['timestamp'])) {
+				$startTime = $_GET['timestamp'];
+			} 
 
 			$blueCounter = 0;
 			$blue = array();
@@ -34,28 +38,14 @@
 			if ($handle) {
     			while (($line = fgets($handle)) !== false) {
     				// find user logs
-	    			if(startsWith($line,$ip)) {
-	    				// find blue log
-	    				if (strpos($line,'dom=abba') !== false) { 
-	    					$blue[$blueCounter] = array();
-	    					array_push($blue[$blueCounter],$line);
+	    			if(startsWith($line,$ip) && datePast($line,$startTime)) {
+	    				// find red log
+	    				if (strpos($line,'dom=abba') !== false) {
+	    					$red[$redCounter] = array();
+	    					array_push($red[$bredCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
 	    						if (strpos($line,'dom=abba') !== false) {   
-	    							array_push($blue[$blueCounter],$line);
-	    						} 
-	    						else {
-	    							$blueCounter++;
-	    							break;
-	    						}
-	    					}				
-						}
-						// find red log
-	    				if (strpos($line,'dom=abbb') !== false) { 
-	    					$red[$redCounter] = array(); 
-	    					array_push($red[$redCounter],$line);
-	    					while (($line = fgets($handle)) !== false) {
-	    						if (strpos($line,'dom=abbb') !== false) {   
-	    								array_push($red[$redCounter],$line);
+	    							array_push($red[$redCounter],$line);
 	    						} 
 	    						else {
 	    							$redCounter++;
@@ -64,15 +54,29 @@
 	    					}				
 						}
 						// find green log
-	    				if (strpos($line,'dom=abbc') !== false) { 
-	    					$green[$greenCounter] = array();
+	    				if (strpos($line,'dom=abbb') !== false) { 
+	    					$green[$greenCounter] = array(); 
 	    					array_push($green[$greenCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
-	    						if (strpos($line,'dom=abbc') !== false) {   
+	    						if (strpos($line,'dom=abbb') !== false) {   
 	    								array_push($green[$greenCounter],$line);
 	    						} 
 	    						else {
 	    							$greenCounter++;
+	    							break;
+	    						}
+	    					}				
+						}
+						// find blue log
+	    				if (strpos($line,'dom=abbc') !== false) { 
+	    					$blue[$blueCounter] = array();
+	    					array_push($blue[$blueCounter],$line);
+	    					while (($line = fgets($handle)) !== false) {
+	    						if (strpos($line,'dom=abbc') !== false) {   
+	    								array_push($blue[$blueCounter],$line);
+	    						} 
+	    						else {
+	    							$blueCounter++;
 	    							break;
 	    						}
 	    					}				
@@ -85,39 +89,78 @@
 			} 
 			fclose($handle);
 
-
-			if(count($blue) < count($red)) {
-				if(count($green) < count($red)) {
-					echo '<h1>You seem to prefer the color red!</h1>';
+			if(!isset($_GET['correct'])) {
+				echo '<center><h3>';
+				if(count($red) <= count($blue) && count($green) <= count($blue)) {
+					echo 'You seem to prefer the color blue!';
 				}
-				else if (count($blue) < count($green)) {
-					echo '<h1>You seem to prefer the color green!</h1>';
-				}				
+				else if(count($blue) < count($red) && count($green) < count($red)) {
+					echo 'You seem to prefer the color red!';
+				}
+				else if(count($blue) < count($green) && count($red) < count($green)) {
+					echo 'You seem to prefer the color green!';				
+				}
+				echo '</h3></center>';
 			}
-			else {
-				echo '<h1>You seem to prefer the color blue!</h1>';
-			}
-			echo '<center>based on how many times you visited the color with your mouse</center><br/><br/>';
-
 
 			if(isset($_GET['correct'])) {
 				$myFile = "results.txt";
 				$fh = fopen($myFile, 'a') or die("can't open file");
 				if($_GET['correct'] === 'yes') {
-					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " True\n");
+					fwrite($fh, $ip . ' ' . date('Y-m-d,H:i:s') . ' ' . " True\n");
 				} else {
-					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " True\n");
+					fwrite($fh, $ip . ' ' . date('Y-m-d,H:i:s') . ' ' . " False\n");
 				}
 				fclose($fh);	
 				echo '<center><p>Thank you</p><center>';
-			} else {
+				echo '<center><a href="index.php">Redo experiment</a></center>';
+  			} else {
    				echo '<center><form action="" id="hide">
 				Is this correct?<br/>
 				<input type="radio" name="correct" value="yes">Yes<br/>
 				<input type="radio" name="correct" value="yes">No<br/>
 				<input type="submit" value="Submit">
 				</form></center>';
-			}			
+			}	
+
+			
+
+			/*echo '<table width=100%>';
+			echo '<tr>';
+			echo '<td></td>';
+			echo '<td>Number of events</td>';
+			echo '<td>Times visited</td>';
+			echo '<td>Time spent</td>';
+			echo '</tr>';
+			echo '<tr>';
+			echo '<td>Blue</td>';
+			echo '<td>'.numberOfEvents($blue).'</td>';
+			echo '<td></td>';
+			echo '<td>'.totalTimeSpent($blue).'</td>';
+			echo '</tr>';
+			echo '<tr>';
+			echo '<td>Red</td>';
+			echo '<td>'.numberOfEvents($red).'</td>';
+			echo '<td></td>';
+			echo '<td>'.totalTimeSpent($red).'</td>';
+			echo '</tr>';
+			echo '<tr>';
+			echo '<td>Green</td>';
+			echo '<td>'.numberOfEvents($green).'</td>';
+			echo '<td></td>';
+			echo '<td>'.totalTimeSpent($green).'</td>';
+			echo '</tr>';
+			echo '</table>';*/
+
+			function datePast($line,$startTime) {
+				$splitLine = explode(" ", $line);
+				$logTime = date('Y-m-d,H:i:s',strtotime($splitLine[1]));
+				if($logTime > $startTime) {
+					return true;
+				} else {
+					return false;
+				}				
+			}
 
 			function numberOfEvents($logs) {
 				$numberOfEvents = 0;
