@@ -42,7 +42,7 @@
 	    				// find red log
 	    				if (strpos($line,'dom=abba') !== false) {
 	    					$red[$redCounter] = array();
-	    					array_push($red[$bredCounter],$line);
+	    					array_push($red[$redCounter],$line);
 	    					while (($line = fgets($handle)) !== false) {
 	    						if (strpos($line,'dom=abba') !== false) {   
 	    							array_push($red[$redCounter],$line);
