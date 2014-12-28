@@ -10,14 +10,10 @@
 		I tried to analyse which image you like most, based on you interactions.
 		I think this is your top three:</center><br/><br/>
 		<?php
-			$ip = $_SERVER['REMOTE_ADDR'];
-			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    			$ip = $_SERVER['HTTP_CLIENT_IP'];		
-			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-			} else {
-			    $ip = $_SERVER['REMOTE_ADDR'];
-			}
+			require_once '../functions.php';
+
+			// get user IP to find corresponding logs in log.txt
+			$ip = getUserIP();
 
 			$amountOfImages = 10;
 
@@ -72,11 +68,6 @@
 			$maxs = array_keys($counters, max($counters));
 			echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt="">';
 			$counters[$maxs[0]]=-1;
-
-			function startsWith($haystack, $needle) {
-			    $length = strlen($needle);
-			    return (substr($haystack, 0, $length) === $needle);
-			}			
 		?>
 	</body>
   </html>

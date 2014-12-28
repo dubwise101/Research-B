@@ -10,14 +10,10 @@
 		I tried to analyse which color you like most, based on you interactions.
 	</center><br/><br/>	
 		<?php
-			$ip = $_SERVER['REMOTE_ADDR'];
-			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    			$ip = $_SERVER['HTTP_CLIENT_IP'];		
-			} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-			} else {
-			    $ip = $_SERVER['REMOTE_ADDR'];
-			}
+			require_once '../functions.php';
+
+			// get user IP to find corresponding logs in log.txt
+			$ip = getUserIP();
 
 			$startTime;
 			if(isset($_GET['timestamp'])) {
@@ -123,45 +119,6 @@
 				</form></center>';
 			}	
 
-			
-
-			/*echo '<table width=100%>';
-			echo '<tr>';
-			echo '<td></td>';
-			echo '<td>Number of events</td>';
-			echo '<td>Times visited</td>';
-			echo '<td>Time spent</td>';
-			echo '</tr>';
-			echo '<tr>';
-			echo '<td>Blue</td>';
-			echo '<td>'.numberOfEvents($blue).'</td>';
-			echo '<td></td>';
-			echo '<td>'.totalTimeSpent($blue).'</td>';
-			echo '</tr>';
-			echo '<tr>';
-			echo '<td>Red</td>';
-			echo '<td>'.numberOfEvents($red).'</td>';
-			echo '<td></td>';
-			echo '<td>'.totalTimeSpent($red).'</td>';
-			echo '</tr>';
-			echo '<tr>';
-			echo '<td>Green</td>';
-			echo '<td>'.numberOfEvents($green).'</td>';
-			echo '<td></td>';
-			echo '<td>'.totalTimeSpent($green).'</td>';
-			echo '</tr>';
-			echo '</table>';*/
-
-			function datePast($line,$startTime) {
-				$splitLine = explode(" ", $line);
-				$logTime = date('Y-m-d,H:i:s',strtotime($splitLine[1]));
-				if($logTime > $startTime) {
-					return true;
-				} else {
-					return false;
-				}				
-			}
-
 			function numberOfEvents($logs) {
 				$numberOfEvents = 0;
 				for($i = 0; $i < count($logs); $i++) {
@@ -187,9 +144,33 @@
 				return $totalTimeSpent;
 			}
 
-			function startsWith($haystack, $needle) {
-			    $length = strlen($needle);
-			    return (substr($haystack, 0, $length) === $needle);
+			function printStats() {
+				echo '<table width=100%>';
+				echo '<tr>';
+				echo '<td></td>';
+				echo '<td>Number of events</td>';
+				echo '<td>Times visited</td>';
+				echo '<td>Time spent</td>';
+				echo '</tr>';
+				echo '<tr>';
+				echo '<td>Blue</td>';
+				echo '<td>'.numberOfEvents($blue).'</td>';
+				echo '<td></td>';
+				echo '<td>'.totalTimeSpent($blue).'</td>';
+				echo '</tr>';
+				echo '<tr>';
+				echo '<td>Red</td>';
+				echo '<td>'.numberOfEvents($red).'</td>';
+				echo '<td></td>';
+				echo '<td>'.totalTimeSpent($red).'</td>';
+				echo '</tr>';
+				echo '<tr>';
+				echo '<td>Green</td>';
+				echo '<td>'.numberOfEvents($green).'</td>';
+				echo '<td></td>';
+				echo '<td>'.totalTimeSpent($green).'</td>';
+				echo '</tr>';
+				echo '</table>';
 			}
 		?>
 	</body>
