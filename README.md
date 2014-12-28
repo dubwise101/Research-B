@@ -9,3 +9,5 @@ Features three experiments:
 - Cards (under construction)
 
 Requires a UsaProxy log.txt present in the root directory.
+
+*** UsaProxy contains a bug: it doesn't take into account that month in JavaScript's Date() is zero-based, so e.g. December shows as 00 in the next year. This application assumes this bug is fixed ***
