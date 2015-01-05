@@ -2,15 +2,34 @@
 \label{sec:discussion}
 
 \subsection{Impact on privacy}
-As we have seen in the previous section, using Ajax we are able to capture a lot of possible privacy-infringing data. If we relate the collection of such data to the concept of privacy as described in Section \ref{sec:methodology}, we see that it violates most of the privacy dimensions. 
+As we have seen in the previous section, using Ajax we are able to capture a lot of possible privacy-infringing data. If we relate the collection of such data to the definition of privacy by Solove, \cite{solove2002conceptualizing} as described in Section \ref{sec:methodology}, we see that most of the privacy dimensions are violated.
+
+\begin{enumerate}
+	\item the right to be let alone: someone could be looking over your shoulder all the time, monitoring all your interactions.
+ 	\item limited access to the self: it is hard to shield yourself against the monitoring of your online behavior.
+	\item secrecy: you cannot conceal your behavior while browsing a website.
+	\item control over personal information: you have no control over the properties derived from your behavior.
+	\item personhood: web applications can derive incorrect properties based on user interaction, which could affect your dignity.
+	\item intimacy: monitoring user behavior could affect your intimate relations.
+\end{enumerate}
 
 \subsection{Legal measures}
-If we apply the legal framework as described in Section \ref{sec:methodology}, we see that both directives apply in this situation as well. 
+If we apply the legal framework as described in Section \ref{sec:methodology}, we see that both directives apply in this situation as well. As for There are some similarities with cookies, in the sense that it relies on writing files to the user's computer. The Data Protection Working Party (DPWP) has confirmed \footnote{``...the chosen wording is not limited to the current issue of cookies, but implies any other new technology that could be used to track the users’ behaviour using their browser", http://ec.europa.eu/justice/policies/privacy/docs/wpdocs/2009/wp159\_en.pdf p.10.} that the provision is not confined to cookies, but extends to all similar tracking technologies, cookies thus being used as an umbrella term for all comparable tracking technologies. 
 
 \subsection{Technical measures}
-One technical measure could be a browser add-on that can recognize the capturing of data using Ajax. Such an addon could inform the user of possible privacy infringements or block data flows from the client device.\\
+There are several technical measures users could take to enhance their privacy with regard to Ajax user interaction collection.\\
 
-Another technical measure is to insert noise to obfuscate real user behaviour from the server.
+Over the last few years we have seen a rise in browser addons that aid in providing more privacy. Examples of this are HTTPS Everywhere, Disconnect and Ghostery. Such an addon could also be developed to detect Ajax privacy infringements. You could tag which events are being logged (MouseMove, onMouseOver, etc.) and if the XmlHttpRequest is being utilized to send that data. The frequency of use of the XmlHttpRequest object could also indicate that interactions are being collected. Such an addon could detect these events and inform the user about possible privacy infringements. It could also try to block data flows from the browser or insert noise to obfuscate user behavior from the server.\\
+
+By using a anonymity service like Tor you can defend yourself against traffic analysis.\\
 
 \subsection{Further research}
-It would be interesting to see what other possibilities with data collected by Ajax are. An example of a powerful way of interpreting the logged data would be to apply a user interaction model to derive certain properties from users. These properties could then lead to complete user profiles, which can be utilized to recognize visitors based on their earlier visits.
+There are several ways to extend the work done in this research. \\
+
+First of all, it would be interesting to see what could be done if the interaction data is combined with other information about the user's system. Things like operating system, browser and installed plugins reveal even more details and make it easier to uniquely identify users. \\
+
+It would also be interesting to study a way of visualizing the data. The most powerful way I can imagine is replaying all the user interaction in real time. So imagine a security guard watching his camera monitors, now you can have website administrators that monitor everything their users are doing. \\
+
+Another powerful way of interpreting the data would be to see if you are able to derive properties about a user, possibly with the aid of a user interaction model that comes from psychology. These properties could then lead to complete user profiles, which can be utilized to recognize visitors based on their earlier visits.\\
+
+There are also other ways of developing an experiment. In the above case, you could think of a form that a user has to fill in. Based on real time interaction data the server can try to derive properties of the user. For example, suppose that the user is typing above a certain average typing speed, he uses the Tab key to skip through the form fields and he makes use of Ctrl + v (paste), you could consider him as an 'advanced' user. This information can directly utilised, for example by showing specific ads.

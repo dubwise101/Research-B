@@ -4,24 +4,30 @@
 \subsection{History}
 In the early 1990s, most websites were based on complete HTML pages. Each user action required a complete page to be loaded from the server. This process was inefficient, as reflected by the user experience: all page content disappeared, then reappeared. Each time the browser reloaded a page because of a partial change, all of the content had to be re-sent, even though only some of the information had changed. This placed an additional load on the server and used excessive bandwidth.\\
 
-During the first stretch of browser innovation, Netscape added a feature known as LiveScript, which allowed people to put small scripts in web pages so that they could continue doing things after you'd download them. One early example was the Netscape form system, which would tell you if you had entered an invalid value for a field as soon as you entered it, instead of after you tried to submit the form to the server.\\
+During the first stretch of browser innovation, Netscape added a feature known as LiveScript, which allowed people to put small scripts in web pages so that they could continue doing things after you would download them. One early example was the Netscape form system, which would tell you if you had entered an invalid value for a field as soon as you entered it, instead of after you tried to submit the form to the server.\\
 
 LiveScript became JavaScript and grew more powerful, leading to a technique known as Dynamic HTML, which was typically used to make things fly around the screen and change around in response to user input. Doing anything serious with Dynamic HTML was painful, however, because all the major browsers implemented its pieces slightly differently.\\
 
 Shortly before web development died out, in early versions of Mozilla, Netscape showed a new kind of technique. An example of this was a search result page, but instead of being written in HTML it was a piece of XML data which was then rendered for the user by a piece of JavaScript. The interesting part was that the rendering could be changed on the fly.\\
 
-Shortly thereafter the bubble burst and web development crashed. Not, however, before Microsoft added a little-known function call named XMLHttpRequest to Internet Explorer 5. Mozilla quickly followed suit and, while nobody used it, the function stayed there, just waiting to be taken advantage of.\\
+Shortly thereafter the bubble burst and web development crashed. Not, however, before Microsoft added a little-known function call named XMLHttpRequest to Internet Explorer 5. Mozilla quickly followed suit and, while nobody used it, the function stayed there, waiting to be taken advantage of.\\
 
-XMLHttpRequest allowed the JavaScript inside web pages to do something they could never really do before: get more data. Before, all the data either had to be sent with the web page. If you wanted more data or new data, you had to grab another web page. The JavaScript inside web pages couldn’t talk to the outside world. XMLHttpRequest changed that, allowing web pages to get more data from the server whenever they pleased.\\
+XMLHttpRequest allowed the JavaScript inside web pages to do something they could never really do before: get more data. Before, all the data either had to be sent with the web page. If you wanted more data or new data, you had to grab another web page. The JavaScript inside web pages could not talk to the outside world. XMLHttpRequest changed that, allowing web pages to get more data from the server whenever they pleased.\\
 
 Google was apparently the first to realize what a sea change this was. With Gmail and Google Maps, they built applications that took advantage of this to provide a user interface that was much more like a web application. (The startup Oddpost, bought by Yahoo, actually predated this but their software was for-pay and so they didn’t receive as much attention.)\\
 
-With Gmail, for example, the application is continually asking the server if there’s new email. If there is, then it live updates the page, it doesn’t make you download a new one. And Google Maps lets you drag a map around and, as you do so, automatically downloads the parts of it you want to look at inline, without making you wait for a whole new page to download \cite{swartz2005brief}.\\
+With Gmail, for example, the application is continually asking the server if there is new email. If there is, then it live updates the page, it doesn’t make you download a new one. And Google Maps lets you drag a map around and, as you do so, automatically downloads the parts of it you want to look at inline, without making you wait for a whole new page to download \cite{swartz2005brief}.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{images/ajax-fig2.png}
+	\caption{The synchronous interaction pattern of a traditional web application (top) compared with the asynchronous pattern of an Ajax application (bottom).}
+\end{figure}
 
 In an attempt to create an official web standard, the World Wide Web Consortium (W3C) published a draft specification for the XMLHttpRequest object on 5 April, 2006. The latest revision to this specification was a last call working draft on 19 November 2009. The W3C has since published another Working Draft specification for the XMLHttpRequest object, "XMLHttpRequest Level 2", on February 25, 2008. The latest revision of the XMLHttpRequest Level 2 specification is that of 16 August 2011, which is still a working draft. As of 5 December 2011, XMLHttpRequest version 2 has been merged into the main XMLHttpRequest specification, and there is no longer a version 1 and a version 2.
 		
 \subsection{Technology}
-Ajax is a term first coined by Jesse James Garett in his 2005 article \cite{garrett2005ajax}. It is an acronym for Asynchronous JavaScript + XML. Ajax is not a single technology, but several technologies combined:
+Ajax is a term first coined by Jesse James Garett in his 2005 article \cite{garrett2005ajax}. It is an acronym for Asynchronous JavaScript + XML. Ajax is not a single technology, but several technologies combined:\\
 \begin{enumerate}
 	\item standards-based presentation using XHTML and CSS
 	\item dynamic display and interaction using the DOM (Document Object Model)
@@ -32,22 +38,22 @@ Ajax is a term first coined by Jesse James Garett in his 2005 article \cite{garr
 ~\\
 Ajax acts as an intermediary engine between the user and the server. Instead of loading a web page, the browser loads an Ajax engine (written in JavaScript). The engine is responsible for rendering the interface and communicating with the server (on the user's behalf). It also allows application interaction to happen asynchronously, independently of the communication with the server.\\
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{images/ajax-fig1.png}
+	\includegraphics[scale=0.4]{images/ajax-fig1.png}
 	\caption{The traditional model for web applications (left) compared to the Ajax model (right).}
 \end{figure}	
 
 \subsection{Applications}
 
 \subsubsection{Rich Internet application}
-A rich Internet application (RIA) is a Web application designed to deliver the same features and functions normally associated with deskop applications. RIAs generally split the processing across the Internet/network divide by locating the user interface and related activity and capability on the client side, and the data manipulation and operation on the application server side. \\
+A rich Internet application (RIA) is a Web application designed to deliver the same features and functions normally associated with desktop applications. RIAs generally split the processing across the Internet/network divide by locating the user interface and related activity and capability on the client side, and the data manipulation and operation on the application server side. \\
  
 An RIA normally runs inside a Web browser and usually does not require software installation on the client side to work. However, some RIAs may only work properly with one or more specific browsers. For security purposes, most RIAs run their client portions within a special isolated area of the client desktop called a sandbox. The sandbox limits visibility and access to the file and operating system on the client to the application server on the other side of the connection.\\
  
 This approach allows the client system to handle local activities, calculations, reformatting and so forth, thereby lowering the amount and frequency of client-server traffic, especially as compared to the client-server implementations built around so-called thin clients.\\
  
-One distinguishing feature of an RIA (in contrast to other Web-based applications) is the client engine that intermediates between the user and the application server. The client engine downloads when the RIA launches. The engine can be augmented during subsequent operation with additional downloads in which the engine acts as a browser extension to handle the user interface and server communications. \\
+One distinguishing feature of an RIA (in contrast to other Web-based applications) is the client engine that intermediates between the user and the application server. The client engine downloads when the RIA launches. The engine can be augmented during subsequent operation with additional downloads in which the engine acts as a browser extension to handle the user interface and server communications.
 		
 \subsubsection{Instant search}
 Instant search is a search enhancement that shows results as you type. This means that you get the right content faster than before, because you don't have to finish typing your full search term, or even press 'search'. Such an enhancement is made possible because of Ajax.\\
@@ -60,9 +66,9 @@ One of the most well-known application of instant search is Google Instant for G
 	\item If I now type a 'c', an Ajax request is sent, but no search results are returned. This since the first suggestion is still facebook.
 \end{itemize}
 	
-The funny thing is that only the partial term is sent to Google, so Google Suggest is used at both ends. This makes Google Instant predictive, since it searches for the suggested autocompletion instead of for the literal partial search query.\\
+The funny thing is that only the partial term is sent to Google, so Google Suggest is used at both ends. This makes Google Instant predictive, since it searches for the suggested autocompletion instead of for the literal partial search query.
 	
 \subsubsection{Comet}
-Website developers want to keep their users as up-to-date as possible. So if someone comments on a picture you are viewing on Facebook, it would be nice to see a comment that someone typed in the meantime instantly. A technique used for this is periodic refresh. The problem with periodic refresh is that while it is good for some things that aren't too time critical, like e-mail fetching, it is not instantaneous. Therefore you wouldn't want to use it for something like chat where waiting even five seconds for a response is too long. You could decrease the polling interval and make a request once a second or even half second, but then you'd quickly overload your browser and waste resources.\\
+Website developers want to keep their users as up-to-date as possible. So if someone comments on a picture you are viewing on Facebook, it would be nice to see a comment that someone typed in the meantime instantly. A technique used for this is periodic refresh. The problem with periodic refresh is that while it is good for some things that aren't too time critical, like e-mail fetching, it is not instantaneous. Therefore you wouldn't want to use it for something like chat, where waiting even five seconds for a response is too long. You could decrease the polling interval and make a request once a second or even half second, but then you would quickly overload your browser and waste resources.\\
 	
-One solution for this is to use a web application model called 'Comet'. Comet is an umbrella term that encompasses multiple techniques  used to allow a web server to push data to a browser without the browser explicitly requesting it, by means of a long-held HTTP request. Term Comet first coined by Alex Russel in 2006 on his personal blog. The term is actually a play on Ajax (Ajax and Comet both being common household cleaners in the USA). Comet is also used for real-time collaborative document editing. Specific methods of implementing Comet fall into two major categories: streaming and long polling. Long polling is easier to implement on the browser side and works in every browser that supports XMLHttpRequest, as opposed to the streaming approach: none of the streaming transports work across all modern browsers without negative side-effects. The browser makes an Ajax-style request to the server, which is kept open until the server has new data to send to the browser, which is sent to the browser in a complete response. The browser initiates a new long polling request in order to obtain subsequent events.
+One solution for this is to use a web application model called 'Comet'. Comet is an umbrella term that encompasses multiple techniques used to allow a web server to push data to a browser without the browser explicitly requesting it, by means of a long-held HTTP request. The term Comet was first coined by Alex Russel in 2006 on his personal blog. It is actually a play on Ajax (Ajax and Comet both being common household cleaners in the USA). Comet is also used for real-time collaborative document editing. Specific methods of implementing Comet fall into two major categories: streaming and long polling. Long polling is easier to implement on the browser side and works in every browser that supports XMLHttpRequest, as opposed to the streaming approach: none of the streaming transports work across all modern browsers without negative side-effects. The browser makes an Ajax-style request to the server, which is kept open until the server has new data to send to the browser, which is sent to the browser in a complete response. The browser initiates a new long polling request in order to obtain subsequent events.

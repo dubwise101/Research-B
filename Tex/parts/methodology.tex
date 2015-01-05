@@ -2,15 +2,19 @@
 \label{sec:methodology}
 	
 \subsection{Privacy}	
-Westin \cite{westin1968privacy} makes a classical distinction, differentiating between various spheres of privacy: solitude, intimacy, reserve and anonymity. The definition of privacy presented by Zureik et al. \cite{privacydimensions} and Solove \cite{solove2002conceptualizing} captures most relevant dimensions that are usually found:
+Privacy is not only relevant in the context of IT, it is a concept that encompasses other aspects of life as well.
+Westin \cite{westin1968privacy} already made a classical distinction in 1967, differentiating between various spheres of privacy: solitude, intimacy, reserve and anonymity.\\
+
+The definition of privacy presented by Zureik et al. \cite{privacydimensions} and Solove \cite{solove2002conceptualizing} captures most relevant dimensions that are usually found:
 \begin{enumerate}
-	\item the right to be let alone (Warren and Brandeis's famous formulation for the right to privacy),
+	\item the right to be let alone (Warren and Brandeis's \cite{warren1890right} famous formulation for the right to privacy),
 	\item limited access to the self (the ability to shield oneself from unwanted access by others), 
 	\item secrecy (the concealment of certain matters from others),
 	\item control over personal information (the ability to exercise control over information about oneself), 
 	\item personhood (the protection of one's personality, individuality and dignity), and 
 	\item intimacy (control over, or limited access to, one's intimate relationships or aspects of life).
 \end{enumerate} 
+~\\
 These two definitions show that privacy is a relatively broad concept that captures various aspects of ordinary life.\\
 
 Hoepman and van Lieshout \cite{privacy} also look at privacy from an IT-perspective. The focus is then more on information privacy: the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. For example, web users may be concerned to discover that many of the web sites which they visit collect, store, and possibly share personally identifiable information about them. In this context privacy can be defined as the right to control the release of personal information about oneself, even when that data is collected and stored by a third party.\\
@@ -40,7 +44,7 @@ When collecting data can be justified, the collection process itself should meet
 ~\\
 A relevant phenomenon for this research is the so-called function creep: over time the functionality of a system may change and grow, encompassing functions which are different from the original purposes of the system. An illustration of function creep is provided by cookies. Cookies are a web mechanism required for the functioning of websites, but over time they have been used for other purposes as well: tracking, profiling and behavioural advertising, among others. Legal measures restricted this use by requiring website owners to ask their users for consent when cookies are used for such purposes.
 
-\subsection{Logging interactions: UsaProxy}
+\subsection{UsaProxy}
 UsaProxy \cite{wnuk2005usability}\cite{atterer2006logging}\cite{atterer2007tracking} is based upon an HTTP proxy approach. Logging is automatically done on an intermediate computer lying between the web browser and the web servers while multiple users surf the web. The assumption is that all page requests, the browsers make, go through the proxy.
 	
 \begin{figure}[h] 
@@ -57,6 +61,7 @@ UsaProxy \cite{wnuk2005usability}\cite{atterer2006logging}\cite{atterer2007track
 \end{itemize}
 	
 Small sample of the log output produced by UsaProxy:
+
 \begin{lstlisting}
 	141.84.8.77 2006-08-27,21:03:00 http://www.kiko.com/ load size=862x389
 	141.84.8.77 2006-08-27,21:03:03 http://www.kiko.com/ click coord=249,195 dom=abaaaa
@@ -64,5 +69,5 @@ Small sample of the log output produced by UsaProxy:
 	...
 \end{lstlisting}
 	
-\subsection{Interpreting interactions}
-To be able to do something with the data logged by UsaProxy I have developed a web application that shows the user a series of pictures. Users are asked to indicate which image they prefer by using their keyboard and mouse. These interactions are logged by UsaProxy. The web application then parses the log file and calculates the amount of actions and their duration registered on a particular image.
+\subsection{Experiment}
+To interpret the interactions logged by UsaProxy I developed an experiment, in the form of a web application. The application shows users a series of 10 images and asks them to use their mouse to indicate which one they like most. When the user is done the application parses the UsaProxy logfile, filtering out the corresponding logs for that particular user. Based on those logs it counts which image has the most logged interactions. The application then shows the user the top three and asks them to confirm whether the prediction is correct.
