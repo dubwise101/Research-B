@@ -1,13 +1,16 @@
+% !TeX spellcheck = en_GB
 \section{Methodology}
 \label{sec:methodology}
+
+To study the relation between privacy and web interaction, we need some definitions and tools. First of all, a definition of privacy is presented, that we can apply later on. Same goes for the legal framework. I then discuss and present a way of logging user interactions by means of Ajax. These logs are then used in the experiment described in the final paragraph.
 	
 \subsection{Privacy}	
 Privacy is not only relevant in the context of IT, it is a concept that encompasses other aspects of life as well.
 Westin \cite{westin1968privacy} already made a classical distinction in 1967, differentiating between various spheres of privacy: solitude, intimacy, reserve and anonymity.\\
 
-The definition of privacy presented by Zureik et al. \cite{privacydimensions} and Solove \cite{solove2002conceptualizing} captures most relevant dimensions that are usually found:
+A more recent definition of privacy presented by Solove \cite{solove2002conceptualizing} captures most relevant dimensions that are usually found:
 \begin{enumerate}
-	\item the right to be let alone (Warren and Brandeis's \cite{warren1890right} famous formulation for the right to privacy),
+	\item the right to be let alone (Warren and Brandeis's famous formulation for the right to privacy \cite{warren1890right}),
 	\item limited access to the self (the ability to shield oneself from unwanted access by others), 
 	\item secrecy (the concealment of certain matters from others),
 	\item control over personal information (the ability to exercise control over information about oneself), 
@@ -17,14 +20,14 @@ The definition of privacy presented by Zureik et al. \cite{privacydimensions} an
 ~\\
 These two definitions show that privacy is a relatively broad concept that captures various aspects of ordinary life.\\
 
-Hoepman and van Lieshout \cite{privacy} also look at privacy from an IT-perspective. The focus is then more on information privacy: the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. For example, web users may be concerned to discover that many of the web sites which they visit collect, store, and possibly share personally identifiable information about them. In this context privacy can be defined as the right to control the release of personal information about oneself, even when that data is collected and stored by a third party.\\
+Hoepman and van Lieshout \cite{privacy} look at privacy from an IT-perspective. The focus is then more on information privacy: the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. For example, web users may be concerned to discover that many of the websites which they visit collect, store, and possibly share personally identifiable information about them. In this context privacy can be defined as the right to control the release of personal information about oneself, even when that data is collected and stored by a third party.\\
 
 It is important to understand that privacy is not the same as data security, although the latter can help to protect personal information from unauthorised access and use. The right to privacy also states that personal data is only collected when necessary, that no more personal data is collected than needed, and that this data should only be used for the purpose for which it was originally collected. Also, people have the right to view and update personal information held by others about themselves.
 	
 \subsection{Legal framework}
-Hoepman and van Lieshout \cite{privacy} also discuss the legal framework. One approach to protecting privacy is by means of legal measures. Most prominent is article 12 of the Universal Declaration of Human Rights: 'No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.' The European Charter of Fundamental Rights (2000) repeats this right to protection by stating that everyone has the right to respect for his or her private and family life, home and communications (article 7) and everyone has the right to protection of personal data (article 8). There is a clear distinction between the two articles: article 7 relates to privacy, whereas article 8 relates to personal data. In this research I consider article 8 to relate to the information dimension of privacy. In Dutch legislation the right to privacy is generally recognised in the Constitution. The Dutch Constitution states that all Dutch citizens have a right to privacy (article 10). \\
+Hoepman and van Lieshout \cite{privacy} also discuss the legal framework, since one approach to protecting privacy is by means of legal measures. Most prominent is article 12 of the Universal Declaration of Human Rights: `No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.' The European Charter of Fundamental Rights (2000) repeats this right to protection by stating that everyone has the right to respect for his or her private and family life, home and communications (article 7) and everyone has the right to protection of personal data (article 8). There is a clear distinction between the two articles: article 7 relates to privacy, whereas article 8 relates to personal data. In this research I consider article 8 to relate to the information dimension of privacy. In Dutch legislation the right to privacy is generally recognised in the Constitution. The Dutch Constitution states that all Dutch citizens have a right to privacy (article 10). \\
 
-For this research the right to protection of personal data is most relevant. This right has led to some important European Directives. The two most relevant ones are Directive 95/46/EC \cite{epat1995directive} 'on the protection of individuals with regard to the processing of personal data and on the free movement of such data' and Directive 2002/58/EC \cite{parliamentdirective} 'concerning the protection of personal data and the protection of privacy in the electronic communications sector.' The latter, also known as the E-Privacy Directive, has meanwhile been inserted in a larger Directive (2009/136/EC), which is commonly referred to as the EU Cookie Law.\\
+For this research the right to protection of personal data is most relevant. This right has led to some important European Directives. The two most relevant ones are Directive 95/46/EC \cite{epat1995directive} `on the protection of individuals with regard to the processing of personal data and on the free movement of such data' and Directive 2002/58/EC \cite{parliamentdirective} `concerning the protection of personal data and the protection of privacy in the electronic communications sector.' The latter, also known as the e-Privacy Directive, has meanwhile been inserted in a larger Directive (2009/136/EC), which is commonly referred to as the EU Cookie Law.\\
 
 Directive 95/46/EC formulates a number of criteria for the lawful processing of personal data. Each processing of personal data means a possible infringement on the privacy of the people whose data are collected and processed. This is only allowed when it can be justified on the following aspects:
 \begin{enumerate}
@@ -39,35 +42,38 @@ When collecting data can be justified, the collection process itself should meet
 	\item the purpose cannot be achieved in another, less invasive way 
 	\item the data collection should be proportionate
 	\item safeguards should be in place 
-	\item the rights of the ‘data subjects’
+	\item the rights of the `data subjects'
 \end{enumerate}
 ~\\
-A relevant phenomenon for this research is the so-called function creep: over time the functionality of a system may change and grow, encompassing functions which are different from the original purposes of the system. An illustration of function creep is provided by cookies. Cookies are a web mechanism required for the functioning of websites, but over time they have been used for other purposes as well: tracking, profiling and behavioural advertising, among others. Legal measures restricted this use by requiring website owners to ask their users for consent when cookies are used for such purposes.
+A relevant phenomenon for this research is the so-called function creep: over time the functionality of a system may change and grow, encompassing functions which are different from the original purposes of the system. An illustration of function creep is provided by cookies. Cookies are a web mechanism required for the functioning of websites, but over time they have been used for other purposes as well: tracking, profiling and behavioural advertising, among others. Legal measures restricted this use by requiring website owners to ask their users for consent when cookies are used for such purposes. The same thing could happen to Ajax: while it is originally meant to improve the user experience, it can also be utilised for monitoring and profiling.
 
 \subsection{UsaProxy}
-UsaProxy \cite{wnuk2005usability}\cite{atterer2006logging}\cite{atterer2007tracking} is based upon an HTTP proxy approach. Logging is automatically done on an intermediate computer lying between the web browser and the web servers while multiple users surf the web. The assumption is that all page requests, the browsers make, go through the proxy.
+To demonstrate the power of monitoring user interaction I need a way to log those interactions with Ajax. This can be achieved in several ways, the most obvious one being a website administrator inserting a piece of JavaScript that sends all user interaction to the server in real time, through the XMLHttpRequest object. For the purpose of this research I decided to utilise a proxy that facilitates such logging for me instead: UsaProxy.\\
+
+UsaProxy \cite{wnuk2005usability}\cite{atterer2006logging}\cite{atterer2007tracking} is based upon an HTTP proxy approach. Logging is automatically done on an intermediate computer lying between the web browser and the web servers while multiple users surf the web. The assumption is that all page requests the browsers make go through the proxy, as seen in Figure \ref{fig:proxy}.
 	
 \begin{figure}[h] 
 	\centering
 	\includegraphics[scale=0.9]{images/proxy.png}
 	\caption{UsaProxy}
+	\label{fig:proxy}
 \end{figure}
 	
 \begin{itemize}	
-	\item The users are fulfilling their tasks visiting web pages while UsaProxy is registered as proxy in the user’s browser properties
-	\item When a user’s browser requests UsaProxy to forward him a specific web page, the respective page is fetched from the web server and prepared with special JavaScript code before it is transmitted to the user
+	\item The users are fulfilling their tasks visiting web pages while UsaProxy is registered as proxy in the user's browser properties
+	\item When a user's browser requests UsaProxy to forward him a specific web page, the respective page is fetched from the web server and prepared with special JavaScript code before it is transmitted to the user
 	\item During the user’s visit on the page all his actions (such as page requests, mouseclicks, mouse movements, scrolling, keystrokes, etc.) are monitored and continuously transmitted to the UsaProxy proxy
 	\item The captured data is stored to a log file
 \end{itemize}
-	
+\newpage
 Small sample of the log output produced by UsaProxy:
 
 \begin{lstlisting}
-	141.84.8.77 2006-08-27,21:03:00 http://www.kiko.com/ load size=862x389
-	141.84.8.77 2006-08-27,21:03:03 http://www.kiko.com/ click coord=249,195 dom=abaaaa
-	141.84.8.77 2006-08-27,21:03:24 http://www.kiko.com/ mouseover coord=341,164 dom=abaaaaa img=kf_index.gif
-	...
+141.84.8.77 2006-08-27,21:03:00 http://www.kiko.com/ load size=862x389
+141.84.8.77 2006-08-27,21:03:03 http://www.kiko.com/ click coord=249,195 dom=abaa
+141.84.8.77 2006-08-27,21:03:24 http://www.kiko.com/ mouseover coord=341,164 dom=abaa img=kf_index.gif
+...
 \end{lstlisting}
 	
 \subsection{Experiment}
-To interpret the interactions logged by UsaProxy I developed an experiment, in the form of a web application. The application shows users a series of 10 images and asks them to use their mouse to indicate which one they like most. When the user is done the application parses the UsaProxy logfile, filtering out the corresponding logs for that particular user. Based on those logs it counts which image has the most logged interactions. The application then shows the user the top three and asks them to confirm whether the prediction is correct.
+To interpret the user interaction logged by UsaProxy I developed an experiment, in the form of a web application. The application shows users a series of 10 images and asks them to use their mouse to indicate which one they like most. When the user is done the application parses the UsaProxy logfile, filtering out the corresponding logs for that particular user, based on the user's IP address and the time he started the experiment. Based on those logs it counts which image has the most interactions logged to it. The application then shows the user the top three and asks them to confirm whether the assumption is correct.

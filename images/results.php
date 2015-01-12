@@ -15,6 +15,11 @@
 			// get user IP to find corresponding logs in log.txt
 			$ip = getUserIP();
 
+			$startTime;
+			if(isset($_GET['timestamp'])) {
+				$startTime = $_GET['timestamp'];
+			} 
+
 			$amountOfImages = 10;
 
 			$counters = array();
@@ -26,7 +31,7 @@
 			$handle = fopen($myFile, "r");
 			if ($handle) {
 				while (($line = fgets($handle)) !== false) {
-					if(startsWith($line,$ip)) {
+					if(startsWith($line,$ip) && datePast($line,$startTime)) {
 						for($i = 0; $i < $amountOfImages; $i++) {
 							if (strpos($line, $i . '.jpg') !== false) {
     							$counters[$i] += 1;
@@ -46,28 +51,28 @@
 				if($_GET['correct'] === 'yes') {
 					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " True\n");
 				} else {
-					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " True\n");
+					fwrite($fh, $ip . ' ' . date('Y-m-d H:i:s') . ' ' . " False\n");
 				}
 				fclose($fh);	
 				echo '<center><p>Thank you</p><center>';
+				echo '<center><a href="index.php">Redo experiment</a></center>';  			
 			} else {
    				echo '<center><form action="" id="hide">
 				Is this correct?<br/>
 				<input type="radio" name="correct" value="yes">Yes<br/>
-				<input type="radio" name="correct" value="yes">No<br/>
+				<input type="radio" name="correct" value="no">No<br/>
 				<input type="submit" value="Submit">
 				</form></center>';
-			}	
-
-			$maxs = array_keys($counters, max($counters));
-			echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt=""><br/>';
-			$counters[$maxs[0]]=-1;
-			$maxs = array_keys($counters, max($counters));
-			echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt=""><br/>';
-			$counters[$maxs[0]]=-1;
-			$maxs = array_keys($counters, max($counters));
-			echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt="">';
-			$counters[$maxs[0]]=-1;
+				$maxs = array_keys($counters, max($counters));
+				echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt=""><br/>';
+				$counters[$maxs[0]]=-1;
+				$maxs = array_keys($counters, max($counters));
+				echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt=""><br/>';
+				$counters[$maxs[0]]=-1;
+				$maxs = array_keys($counters, max($counters));
+				echo '<img src="images/'.$maxs[0].'.jpg" class="displayed" alt="">';
+				$counters[$maxs[0]]=-1;
+			}			
 		?>
 	</body>
   </html>

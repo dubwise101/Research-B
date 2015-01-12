@@ -8,7 +8,7 @@
   <h1>Have a look at these images</h1>
     <h3>Use your mouse to indicate which one you like most</h3>
     <?php
-      $date = date('Y-m-d,H:i:s',strtotime("-1 month"));
+      $date = date('Y-m-d,H:i:s');
       echo 'Click <a href="results.php?timestamp='.$date.'">here</a> when you are done';
     ?>
     </center>

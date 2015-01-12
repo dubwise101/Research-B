@@ -1,35 +1,24 @@
+% !TeX spellcheck = en_GB
 \section{Discussion and Future Work}
 \label{sec:discussion}
+To assess the impact on privacy I apply the definition of privacy as presented in Section \ref{sec:methodology}. I also apply the legal framework discussed there, as well as technical measures that could be taken to reduce Ajax privacy infringements. Finally I discuss future work that can be done to extend this research.
 
 \subsection{Impact on privacy}
-As we have seen in the previous section, using Ajax we are able to capture a lot of possible privacy-infringing data. If we relate the collection of such data to the definition of privacy by Solove, \cite{solove2002conceptualizing} as described in Section \ref{sec:methodology}, we see that most of the privacy dimensions are violated.
+As we have seen in Section \ref{sec:results}, Ajax can be used to capture all kinds of user interaction data.  If we relate the collection of such data to the definition of privacy by Solove  \cite{solove2002conceptualizing}, as described in Section \ref{sec:methodology}, we see that most of the privacy dimensions are violated.\\
 
-\begin{enumerate}
-	\item the right to be let alone: someone could be looking over your shoulder all the time, monitoring all your interactions.
- 	\item limited access to the self: it is hard to shield yourself against the monitoring of your online behavior.
-	\item secrecy: you cannot conceal your behavior while browsing a website.
-	\item control over personal information: you have no control over the properties derived from your behavior.
-	\item personhood: web applications can derive incorrect properties based on user interaction, which could affect your dignity.
-	\item intimacy: monitoring user behavior could affect your intimate relations.
-\end{enumerate}
+The most obvious thing is that a user is never sure if he is let alone. Website administrators could be monitoring users without them knowing so, and without their consent. It is hard for users to limit access to themselves when it comes to Ajax monitoring, as discussed in the next two subsections. Thus concealing your behaviour is next to impossible, which clears the way for automatically deriving properties from user interactions, over which you have no control. You could be marked as a terrorist for example, without having any idea of or influence on the fact that this is happening. Such properties could ultimately endanger your dignity. 
 
 \subsection{Legal measures}
-If we apply the legal framework as described in Section \ref{sec:methodology}, we see that both directives apply in this situation as well. As for There are some similarities with cookies, in the sense that it relies on writing files to the user's computer. The Data Protection Working Party (DPWP) has confirmed \footnote{``...the chosen wording is not limited to the current issue of cookies, but implies any other new technology that could be used to track the users’ behaviour using their browser", http://ec.europa.eu/justice/policies/privacy/docs/wpdocs/2009/wp159\_en.pdf p.10.} that the provision is not confined to cookies, but extends to all similar tracking technologies, cookies thus being used as an umbrella term for all comparable tracking technologies. 
+If we apply the legal framework as described in Section \ref{sec:methodology}, we see that both directives apply in this situation as well. As for There are some similarities with cookies, in the sense that it relies on writing files to the user's computer. The Data Protection Working Party (DPWP) has confirmed\footnote{``...the chosen wording is not limited to the current issue of cookies, but implies any other new technology that could be used to track the users’ behaviour using their browser", http://ec.europa.eu/justice/policies/privacy/docs/wpdocs/2009/wp159\_en.pdf p.10.} that the provision is not confined to cookies, but extends to all similar tracking technologies, cookies thus being used as an umbrella term for all comparable tracking technologies. 
 
 \subsection{Technical measures}
-There are several technical measures users could take to enhance their privacy with regard to Ajax user interaction collection.\\
+Over the last few years we have seen the advent of browser plugins that aid in providing more privacy. Examples of this are HTTPS Everywhere, Disconnect and Ghostery. Such a plugin could also be developed to detect Ajax privacy infringements. You could tag which events are being logged (MouseMove, onMouseOver, etc.) and if the XmlHttpRequest is being utilized to send that data. The frequency of use of the XmlHttpRequest object could also indicate that interactions are being collected. Such an plugin could detect these events and inform the user about possible privacy infringements. It could also try to block data flows from the browser or insert noise to obfuscate user behaviour from the server.\\
 
-Over the last few years we have seen a rise in browser addons that aid in providing more privacy. Examples of this are HTTPS Everywhere, Disconnect and Ghostery. Such an addon could also be developed to detect Ajax privacy infringements. You could tag which events are being logged (MouseMove, onMouseOver, etc.) and if the XmlHttpRequest is being utilized to send that data. The frequency of use of the XmlHttpRequest object could also indicate that interactions are being collected. Such an addon could detect these events and inform the user about possible privacy infringements. It could also try to block data flows from the browser or insert noise to obfuscate user behavior from the server.\\
-
-By using a anonymity service like Tor you can defend yourself against traffic analysis.\\
+In the case of the experiment I set up, a user could defend himself by using a proxy server or anonymity network like Tor, since this obfuscates the user's IP address. But in the case of more powerful experiment, one could think of user behaviour alone to recognize separate visitors. In such situations a proxy or Tor would be rendered useless.
 
 \subsection{Further research}
-There are several ways to extend the work done in this research. \\
+It would be interesting to extend the experiment by calculating more interesting metrics (such as time) from the log and combining them to derive more complex user properties. These properties could then be used on-the-fly to manipulate the user. For example, one could think of a web form that the user has to fill in. Based on user interaction data that is sent in real time, the server can try to derive properties of the user. So suppose that the user is typing above a certain average typing speed, he uses the Tab key to skip through the form fields and he makes use of Ctrl+v (paste), you could consider him as an `advanced' user. This information can directly utilised, for example by showing targeted ads for that particular category of users.\\
 
-First of all, it would be interesting to see what could be done if the interaction data is combined with other information about the user's system. Things like operating system, browser and installed plugins reveal even more details and make it easier to uniquely identify users. \\
+It would also be interesting to study a way of visualizing the logged interactions. The most powerful way I can imagine is replaying all the user interaction in real time. So imagine a security guard watching his camera monitors: you can now have a website administrator that monitors everything his users are doing.\\
 
-It would also be interesting to study a way of visualizing the data. The most powerful way I can imagine is replaying all the user interaction in real time. So imagine a security guard watching his camera monitors, now you can have website administrators that monitor everything their users are doing. \\
-
-Another powerful way of interpreting the data would be to see if you are able to derive properties about a user, possibly with the aid of a user interaction model that comes from psychology. These properties could then lead to complete user profiles, which can be utilized to recognize visitors based on their earlier visits.\\
-
-There are also other ways of developing an experiment. In the above case, you could think of a form that a user has to fill in. Based on real time interaction data the server can try to derive properties of the user. For example, suppose that the user is typing above a certain average typing speed, he uses the Tab key to skip through the form fields and he makes use of Ctrl + v (paste), you could consider him as an 'advanced' user. This information can directly utilised, for example by showing specific ads.
+Another powerful way of interpreting the data would be to see if it is possible to derive complex properties of users with the aid of a user interaction model from psychology. This would require vast amounts of interaction data, so machine learning techniques could be applied to aid in deriving properties. These properties could then lead to complete user profiles, which can be utilised to recognise visitors based on their earlier visits.
